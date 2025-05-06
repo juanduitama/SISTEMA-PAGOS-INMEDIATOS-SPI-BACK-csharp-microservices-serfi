@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Delete-Service\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9270A5B6-BBAA-4B37-8204-5D9BB96A1649}|SPI-Delete-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-delete-service\\services\\delete\\ireddeleteaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9270A5B6-BBAA-4B37-8204-5D9BB96A1649}|SPI-Delete-Service.csproj|solutionrelative:services\\delete\\ireddeleteaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9270A5B6-BBAA-4B37-8204-5D9BB96A1649}|SPI-Delete-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-delete-service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9270A5B6-BBAA-4B37-8204-5D9BB96A1649}|SPI-Delete-Service.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IRedDeleteAccountService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Delete-Service\\Services\\delete\\IRedDeleteAccountService.cs",
+              "RelativeDocumentMoniker": "Services\\delete\\IRedDeleteAccountService.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Delete-Service\\Services\\delete\\IRedDeleteAccountService.cs",
+              "RelativeToolTip": "Services\\delete\\IRedDeleteAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T14:34:52.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Delete-Service\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Delete-Service\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T14:34:14.36Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

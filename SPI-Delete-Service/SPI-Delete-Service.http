@@ -1,0 +1,6 @@
+@SPI_Delete_Service_HostAddress = http://localhost:5153
+
+GET {{SPI_Delete_Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

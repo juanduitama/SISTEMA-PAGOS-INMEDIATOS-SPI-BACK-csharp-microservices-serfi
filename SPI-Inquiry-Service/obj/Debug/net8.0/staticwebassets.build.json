@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "I5AxGhREdrPQZWdqTbWHFZNu+hnIumrP6wTT6SVWVk8=",
+  "Source": "SPI-Inquiry-Service",
+  "BasePath": "_content/SPI-Inquiry-Service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "tpLE0YFLWhi3VHZ3Sk+Czf1FncaRHlgqNug4MbEi1f8=",
+  "Source": "SPI-Enrollment-Service",
+  "BasePath": "_content/SPI-Enrollment-Service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "9XKCEt4gL7UNelgUZAOtDAWf6lMkp8yQPCG3bpKSXIs=",
+  "Source": "SPI-Update-Service",
+  "BasePath": "_content/SPI-Update-Service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
