@@ -1,14 +1,94 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\",
+  "WorkspaceRootPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-enrollment-service\\services\\create\\iredenrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\constants\\responseserviceenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:constants\\responseserviceenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\util\\serfiexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:util\\serfiexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\constants\\statuscodeenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:constants\\statuscodeenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\services\\opensearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:services\\opensearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\services\\iopensearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:services\\iopensearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\repositories\\opensearchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:repositories\\opensearchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\services\\validateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:services\\validateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\mapper\\rqmapperos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:mapper\\rqmapperos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\mapper\\responseserfimapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:mapper\\responseserfimapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\mapper\\redrqmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:mapper\\redrqmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\enrollment\\enrollmentrq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\enrollment\\enrollmentrq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\mapper\\headermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:mapper\\headermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\enrollment\\enrollmentaccountheaders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\enrollment\\enrollmentaccountheaders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\services\\create\\iredenrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:services\\create\\iredenrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-enrollment-service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\reqbpostaccountrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\reqbpostaccountrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\redeban\\enrollmentrqred.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\redeban\\enrollmentrqred.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\custinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\custinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\custcontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\custcontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\additionaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\additionaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-enrollment-service\\models\\msginformationresponseserfi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8306B78-8CA9-49B8-A9E9-2A0C0A90FE99}|SPI-Enrollment-Service.csproj|solutionrelative:models\\msginformationresponseserfi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +98,292 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IRedEnrollmentService.cs",
-              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\Services\\create\\IRedEnrollmentService.cs",
-              "RelativeDocumentMoniker": "Services\\create\\IRedEnrollmentService.cs",
-              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\Services\\create\\IRedEnrollmentService.cs",
-              "RelativeToolTip": "Services\\create\\IRedEnrollmentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ResponseServiceEnum.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Constants\\ResponseServiceEnum.cs",
+              "RelativeDocumentMoniker": "Constants\\ResponseServiceEnum.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Constants\\ResponseServiceEnum.cs",
+              "RelativeToolTip": "Constants\\ResponseServiceEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwCEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:36:43.67Z",
+              "WhenOpened": "2025-05-07T22:28:07.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "StatusCodeEnum.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Constants\\StatusCodeEnum.cs",
+              "RelativeDocumentMoniker": "Constants\\StatusCodeEnum.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Constants\\StatusCodeEnum.cs",
+              "RelativeToolTip": "Constants\\StatusCodeEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:31:06.687Z",
+              "WhenOpened": "2025-05-07T22:19:15.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IOpenSearchService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\IOpenSearchService.cs",
+              "RelativeDocumentMoniker": "Services\\IOpenSearchService.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\IOpenSearchService.cs",
+              "RelativeToolTip": "Services\\IOpenSearchService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T22:03:19.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SerfiException.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Util\\SerfiException.cs",
+              "RelativeDocumentMoniker": "Util\\SerfiException.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Util\\SerfiException.cs",
+              "RelativeToolTip": "Util\\SerfiException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T22:08:03.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OpenSearchRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Repositories\\OpenSearchRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\OpenSearchRepository.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Repositories\\OpenSearchRepository.cs",
+              "RelativeToolTip": "Repositories\\OpenSearchRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T22:05:48.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OpenSearchService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\OpenSearchService.cs",
+              "RelativeDocumentMoniker": "Services\\OpenSearchService.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\OpenSearchService.cs",
+              "RelativeToolTip": "Services\\OpenSearchService.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T22:03:41.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RqMapperOs.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\RqMapperOs.cs",
+              "RelativeDocumentMoniker": "Mapper\\RqMapperOs.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\RqMapperOs.cs",
+              "RelativeToolTip": "Mapper\\RqMapperOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T22:02:51.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EnrollmentController.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Controllers\\EnrollmentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EnrollmentController.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Controllers\\EnrollmentController.cs",
+              "RelativeToolTip": "Controllers\\EnrollmentController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAqwF0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:20:24.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HeaderMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\HeaderMapper.cs",
+              "RelativeDocumentMoniker": "Mapper\\HeaderMapper.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\HeaderMapper.cs",
+              "RelativeToolTip": "Mapper\\HeaderMapper.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAArwDkAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:20:57.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EnrollmentRq.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\enrollment\\EnrollmentRq.cs",
+              "RelativeDocumentMoniker": "Models\\enrollment\\EnrollmentRq.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\enrollment\\EnrollmentRq.cs",
+              "RelativeToolTip": "Models\\enrollment\\EnrollmentRq.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:25:58.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EnrollmentAccountHeaders.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\enrollment\\EnrollmentAccountHeaders.cs",
+              "RelativeDocumentMoniker": "Models\\enrollment\\EnrollmentAccountHeaders.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\enrollment\\EnrollmentAccountHeaders.cs",
+              "RelativeToolTip": "Models\\enrollment\\EnrollmentAccountHeaders.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:22:12.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ResponseSerfiMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\ResponseSerfiMapper.cs",
+              "RelativeDocumentMoniker": "Mapper\\ResponseSerfiMapper.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\ResponseSerfiMapper.cs",
+              "RelativeToolTip": "Mapper\\ResponseSerfiMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T21:19:44.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RedRqMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\RedRqMapper.cs",
+              "RelativeDocumentMoniker": "Mapper\\RedRqMapper.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Mapper\\RedRqMapper.cs",
+              "RelativeToolTip": "Mapper\\RedRqMapper.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAswE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:20:22.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ValidateService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\ValidateService.cs",
+              "RelativeDocumentMoniker": "Services\\ValidateService.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\ValidateService.cs",
+              "RelativeToolTip": "Services\\ValidateService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T21:17:44.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IRedEnrollmentService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\create\\IRedEnrollmentService.cs",
+              "RelativeDocumentMoniker": "Services\\create\\IRedEnrollmentService.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Services\\create\\IRedEnrollmentService.cs",
+              "RelativeToolTip": "Services\\create\\IRedEnrollmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T21:15:52.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ReqBPostAccountRelationship.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\ReqBPostAccountRelationship.cs",
+              "RelativeDocumentMoniker": "Models\\ReqBPostAccountRelationship.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\ReqBPostAccountRelationship.cs",
+              "RelativeToolTip": "Models\\ReqBPostAccountRelationship.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T21:14:07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-07T21:11:53.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EnrollmentRqRed.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\redeban\\EnrollmentRqRed.cs",
+              "RelativeDocumentMoniker": "Models\\redeban\\EnrollmentRqRed.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\redeban\\EnrollmentRqRed.cs",
+              "RelativeToolTip": "Models\\redeban\\EnrollmentRqRed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:28:00.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CustInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\CustInfo.cs",
+              "RelativeDocumentMoniker": "Models\\CustInfo.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\CustInfo.cs",
+              "RelativeToolTip": "Models\\CustInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:55:26.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CustContact.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\CustContact.cs",
+              "RelativeDocumentMoniker": "Models\\CustContact.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\CustContact.cs",
+              "RelativeToolTip": "Models\\CustContact.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:57:13.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AdditionalData.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\AdditionalData.cs",
+              "RelativeDocumentMoniker": "Models\\AdditionalData.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\AdditionalData.cs",
+              "RelativeToolTip": "Models\\AdditionalData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:59:23.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MsgInformationResponseSerfi.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\MsgInformationResponseSerfi.cs",
+              "RelativeDocumentMoniker": "Models\\MsgInformationResponseSerfi.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\Models\\MsgInformationResponseSerfi.cs",
+              "RelativeToolTip": "Models\\MsgInformationResponseSerfi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T20:23:53.008Z",
               "EditorCaption": ""
             }
           ]

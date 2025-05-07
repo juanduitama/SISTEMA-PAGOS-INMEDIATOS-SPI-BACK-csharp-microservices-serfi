@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SPI_Enrollment_Service.model
 {
-    public class AdditionalData
+    public class AditionalData
     {
         /**
          * Representa que hay una lista de tipo Envelope en el cuerpo del mensaje

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj": {}
+    "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj": {
+    "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
         "projectName": "SPI-Enrollment-Service",
-        "projectPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
+        "projectPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
         "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Enrollment-Service\\obj\\",
+        "outputPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,9 +50,33 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AWSSDK.SecretsManager": {
+              "target": "Package",
+              "version": "[4.0.0.2, )"
+            },
+            "AWSSDK.SimpleSystemsManagement": {
+              "target": "Package",
+              "version": "[4.0.1.2, )"
+            },
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.21.0, )"
+            },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.5, )"
+            },
+            "OpenSearch.Client": {
+              "target": "Package",
+              "version": "[1.8.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

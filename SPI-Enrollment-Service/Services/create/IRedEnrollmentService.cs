@@ -1,5 +1,9 @@
-﻿using SPI_Enrollment_Service.model.enrollment;
-using SPI_Enrollment_Service.model;
+﻿using SPI_Enrollment_Service.model;
+using Models;
+using Models.enrollment;
+using SPI_Enrollment_Service.Models.redeban.response;
+using SPI_Enrollment_Service.Models.enrollment;
+using SPI_Enrollment_Service.Models.redeban;
 
 namespace SPI_Enrollment_Service.service.create
 {
@@ -21,7 +25,8 @@ namespace SPI_Enrollment_Service.service.create
         /// <exception cref="InvalidOperationException">
         /// Se lanza cuando hay un problema con la configuración de la petición.
         /// </exception>
-        Task<HttpResponseMessage> Create(string url, HeadersRq headers, EnrollmentRq requestBody);
+        Task<MessageInformation> Create(string url, HeadersRq headers, EnrollmentRqRed requestBody);
+
 
     }
 }

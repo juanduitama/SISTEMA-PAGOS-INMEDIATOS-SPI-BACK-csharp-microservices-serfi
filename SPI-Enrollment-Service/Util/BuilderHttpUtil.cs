@@ -14,10 +14,20 @@ namespace SPI_directory_service.Util
     {
             public HttpClient BuildClient()
             {
-                var handler = new HttpClientHandler
+
+            Console.WriteLine("[INFO] Configurando HttpClient con validación SSL personalizada");
+            var handler = new HttpClientHandler
                 {
-                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-                };
+                //ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+                {
+                    Console.WriteLine($"[INFO] Validación de certificado: {sslPolicyErrors}");
+                    return true;
+                },
+                SslProtocols = System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls13,
+                AllowAutoRedirect = true,
+                MaxConnectionsPerServer = 10
+            };
 
                 return new HttpClient(handler);
             }

@@ -5,16 +5,20 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Models;
+using Models.enrollment;
+using OpenSearch.Client;
+using Repositories;
+using Services;
 using SPI_directory_service.Util;
-
-
-//using Microsoft.Extensions.Logging;
-//using SPBVI_BACK_csharp_aot_libs_commons_serfi;
-//using SPBVI_BACK_csharp_aot_libs_redeban_connection_serfi.constants;
 using SPI_Enrollment_Service.model;
-using SPI_Enrollment_Service.model.enrollment;
+using SPI_Enrollment_Service.Models.enrollment;
+using SPI_Enrollment_Service.Models.redeban;
+using SPI_Enrollment_Service.Models.redeban.response;
+using SPI_Enrollment_Service.Repositories;
 using SPI_Enrollment_Service.util;
 using SPI_Enrollment_Serviceconstants;
+using Utils;
 
 
 namespace SPI_Enrollment_Service.service.create
@@ -24,12 +28,12 @@ namespace SPI_Enrollment_Service.service.create
         /// <summary>
         /// Cliente HTTP estático compartido para todas las instancias del servicio.
         /// </summary>
-        private static readonly HttpClient _httpClient;
+        private  readonly HttpClient _httpClient;
 
         /// <summary>
         /// Utilidad para construir y configurar instancias de HttpClient.
         /// </summary>
-        private static readonly BuilderHttpUtil _BuilderHttpUtil;
+        private  readonly BuilderHttpUtil _BuilderHttpUtil;
 
 
         private static readonly JsonSerializerOptions _jsonOptions;
@@ -37,16 +41,10 @@ namespace SPI_Enrollment_Service.service.create
         /// Constructor estático que inicializa los recursos compartidos.
         /// Configura el cliente HTTP una sola vez para su reutilización en todas las solicitudes.
         /// </summary>
-        static RedEnrollmentServiceImpl()
+        public RedEnrollmentServiceImpl()
         {
             _BuilderHttpUtil = new BuilderHttpUtil();
             _httpClient = _BuilderHttpUtil.BuildClient();
-
-            _jsonOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true
-            };
         }
 
         /// <summary>
@@ -65,10 +63,13 @@ namespace SPI_Enrollment_Service.service.create
         /// <exception cref="Exception">
         /// Se lanza para cualquier otro error inesperado durante el proceso de creación.   
         /// </exception>
-        public async Task<HttpResponseMessage> Create(string url, HeadersRq headers, EnrollmentRq requestBody)
+        public async Task<MessageInformation> Create(string url, HeadersRq headers, EnrollmentRqRed requestBody)
         {
             try
             {
+
+                MessageInformation responseRedeban = new MessageInformation();
+
                 Console.WriteLine($"[INFO] Iniciando solicitud POST a: {url}");
 
                 ClearHeaders();
@@ -79,8 +80,6 @@ namespace SPI_Enrollment_Service.service.create
                 // Configurar cabeceras adicionales específicas para POST
                 _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", ConstantsEnum.APPLICATION_JSON);
                 _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", ConstantsEnum.APPLICATION_JSON);
-
-
 
                 string jsonContent = JsonSerializer.Serialize(requestBody, _jsonOptions);
 
@@ -94,26 +93,17 @@ namespace SPI_Enrollment_Service.service.create
 
                 // Realizar la solicitud POST
                 Console.WriteLine("[INFO] Enviando solicitud POST...");
-                HttpResponseMessage response = await _httpClient.PostAsync(url, content);
 
+                HttpResponseMessage response = await _httpClient.PostAsync(url, content);
+                
                 Console.WriteLine($"[INFO] Respuesta recibida con código: {response.StatusCode}");
 
                 string responseRes = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"[RES] Respuesta: {responseRes}");
 
-                // Verificamos si la respuesta fue exitosa
-                if (response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine("[INFO] Solicitud POST exitosa");
-                }
-                else
-                {
-                    Console.WriteLine($"[WARN] Solicitud POST fallida con código: {response.StatusCode}");
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"[WARN] Respuesta de error: {responseContent}");
-                }
-
-                return response;
+                responseRedeban = JsonSerializer.Deserialize<MessageInformation>(responseRes);
+                
+                Console.WriteLine($"[RES] Respuesta: {responseRedeban.ToString()}");
+                return responseRedeban;
             }
             catch (HttpRequestException ex)
             {

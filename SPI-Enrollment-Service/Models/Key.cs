@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -18,45 +19,23 @@ namespace SPI_Enrollment_Service.model
          * | EMAIL: Correo electrónico
          * | ALIAS: Identificador alfanumérico |
          */
-        [JsonPropertyName("Type")]
-        public string? type { get; set; }
+        [JsonPropertyName("keyType")]
+        [Required]
+        public string keyType { get; set; }
 
         /**
-         * Llave utilizada para identificar el receptor,
-         * debe corresponder al tipo enviado en el campo “KeyType”
+         * Valor de la llave
          */
-        [JsonPropertyName("Value")]
-        public string? value { get; set; }
-
-        /**
-         * Indica la fecha y hora en que se realizó la creación de la llave
-         */
-        [JsonPropertyName("CreatedDate")]
-        public string? createdDate { get; set; }
-
-        /**
-         * Indica la fecha y hora en que se realizó la solicitud de la transacción
-         */
-        [JsonPropertyName("UpdatedDate")]
-        public string? updatedDate { get; set; }
+        [JsonPropertyName("keyId")]
+        [Required]
+        public string keyId { get; set; }
 
         /**
          * Estado de la llave | ACTIVA: Activa | BLOQUEADA: Bloqueada
          * | ON_HOLD: Suspendida por proceso de portabilidad | CANCELADA: Cancelada
          */
-        [JsonPropertyName("KeyState")]
-        public string? keyState { get; set; }
-
-        /**
-         * Sistema de Pago de Bajo Valor Inmediato al que pertenece la llave
-         */
-        [JsonPropertyName("InstructedAgent")]
-        public string? instructedAgent { get; set; }
-
-        /**
-         * Bandera que representa si la llave se registró en el Directorio Centralizado (DICE)]
-         */
-        [JsonPropertyName("DICE")]
-        public bool dice { get; set; }
+        [JsonPropertyName("keyStatus")]
+        [Required]
+        public string keyStatus { get; set; }
     }
 }

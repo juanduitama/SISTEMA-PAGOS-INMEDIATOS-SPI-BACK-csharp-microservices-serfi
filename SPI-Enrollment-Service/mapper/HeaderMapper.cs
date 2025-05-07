@@ -4,6 +4,7 @@ using SPI_Enrollment_Service.model;
 using SPI_Enrollment_Serviceconstants;
 using System.Text.Json.Serialization.Metadata;
 using System.Text.Json;
+using SPI_Enrollment_Service.Models.redeban;
 
 namespace SPI_Enrollment_Service.util
 {

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPI-Enrollment-Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e82fd31cf825e843c171e187c8e20fe926b7111")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPI-Enrollment-Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPI-Enrollment-Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

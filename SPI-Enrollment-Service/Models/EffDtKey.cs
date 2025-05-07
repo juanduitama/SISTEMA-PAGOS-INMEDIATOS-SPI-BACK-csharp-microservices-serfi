@@ -1,0 +1,24 @@
+using SPI_Enrollment_Service.model.model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace SPI_Enrollment_Service.model
+{
+    public class EffDtKey
+    {
+        [Required]
+        [JsonPropertyName("effDtCreate")]
+        public DateTime effDtCreate { get; set; }
+
+        [JsonPropertyName("effDtModify")]
+        public DateTime effDtModify { get; set; }
+
+        [JsonPropertyName("effDtConsent")]
+        public DateTime effDtConsent { get; set; }
+    }
+}
