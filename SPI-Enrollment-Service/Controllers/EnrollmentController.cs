@@ -88,8 +88,9 @@ namespace SPI_directory_service.Controllers
                     _logger.LogInformation("Iniciando proceso de guardado en open search.");
                     OSDefinitive entityToSave = rqMapperOs.mapOSDefinitiveFromRequest(request);
                     await openSearchService.SaveKey(entityToSave);
+                _logger.LogInformation("guardado en open search.");
 
-                    MsgInformationResponseSerfi responseService = rqMapperOs.responseSuccess(entityToSave, request, responseRedeban);
+                MsgInformationResponseSerfi responseService = rqMapperOs.responseSuccess(entityToSave, request, responseRedeban);
 
                     return responseService;
                 }
