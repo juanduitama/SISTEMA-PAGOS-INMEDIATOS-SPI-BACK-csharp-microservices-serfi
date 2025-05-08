@@ -82,15 +82,15 @@ namespace SPI_directory_service.Controllers
                         }
                     }else{
                         _logger.LogError($"Se encontró un registro con la llave: " + request.reqBPostAccountRelationship.key.keyId);
-                    throw new SerfiException(ResponseServiceEnum.FOUND_KEY.getErrorCode(), ResponseServiceEnum.FOUND_KEY.getMessage(), ResponseServiceEnum.FOUND_KEY.getHttpCode());
+                        throw new SerfiException(ResponseServiceEnum.FOUND_KEY.getErrorCode(), ResponseServiceEnum.FOUND_KEY.getMessage(), ResponseServiceEnum.FOUND_KEY.getHttpCode());
                     }
 
                     _logger.LogInformation("Iniciando proceso de guardado en open search.");
                     OSDefinitive entityToSave = rqMapperOs.mapOSDefinitiveFromRequest(request);
                     await openSearchService.SaveKey(entityToSave);
-                _logger.LogInformation("guardado en open search.");
+                    _logger.LogInformation("guardado en open search.");
 
-                MsgInformationResponseSerfi responseService = rqMapperOs.responseSuccess(entityToSave, request, responseRedeban);
+                    MsgInformationResponseSerfi responseService = rqMapperOs.mapOSMessageResponse(entityToSave, request, responseRedeban);
 
                     return responseService;
                 }

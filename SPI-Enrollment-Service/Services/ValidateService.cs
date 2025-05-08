@@ -1,5 +1,8 @@
 ﻿using Constants;
+using Models;
 using Models.enrollment;
+using SPI_Enrollment_Service.constants;
+using SPI_Enrollment_Service.model;
 using System.Text.RegularExpressions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,77 +14,81 @@ namespace Services
            
         public bool ValidateServiceModel(EnrollmentRq enrollmentRq) {
 
-            if (!validateAccountType(enrollmentRq.reqBPostAccountRelationship.accountInfo.acctType))
+            if (!validateAccountType(enrollmentRq.reqBPostAccountRelationship.acctInfo.acctType))
             {
-                
+                throw new SerfiException(ResponseServiceEnum.INVALID_ACCTYPE.getErrorCode(), ResponseServiceEnum.INVALID_ACCTYPE.getMessage() + "", ResponseServiceEnum.INVALID_ACCTYPE.getHttpCode());
             }
-            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.accountInfo.acctId, ValidationEnums.ACCOUNT_ID))
+            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.acctInfo.acctId, ValidationEnums.ACCOUNT_ID))
             {
-                
-            }
-            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.firstName, ValidationEnums.CUST_INFO_NAMES)
+                throw new SerfiException(ResponseServiceEnum.INVALID_ACCTID.getErrorCode(), ResponseServiceEnum.INVALID_ACCTID.getMessage() + ValidationEnums.ACCOUNT_ID, ResponseServiceEnum.INVALID_ACCTYPE.getHttpCode());
+            }            
+            else if (!validateCustType(enrollmentRq.reqBPostAccountRelationship.custInfo))
+            {
+                /** NO SE SI SEAN NECESARIAS ESTAS VALIDACIONES
+                 * else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.firstName, ValidationEnums.CUST_INFO_NAMES)
                         && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.firstName, ValidationEnums.CUST_INFO_SIZE_40))
-            {
+                {
 
-            }
-            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.secondName, ValidationEnums.CUST_INFO_NAMES)
-                    && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.secondName, ValidationEnums.CUST_INFO_SIZE_40))
-            {
+                }
+                else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.secondName, ValidationEnums.CUST_INFO_NAMES)
+                        && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.secondName, ValidationEnums.CUST_INFO_SIZE_40))
+                {
 
-            }
-            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.lastName, ValidationEnums.CUST_INFO_NAMES)
-                    && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.lastName, ValidationEnums.CUST_INFO_SIZE_40))
-            {
+                }
+                else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.lastName, ValidationEnums.CUST_INFO_NAMES)
+                        && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.lastName, ValidationEnums.CUST_INFO_SIZE_40))
+                {
 
-            }
-            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.secondLastName, ValidationEnums.CUST_INFO_NAMES)
-                    && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.secondLastName, ValidationEnums.CUST_INFO_SIZE_40))
-            {
+                }
+                else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.secondLastName, ValidationEnums.CUST_INFO_NAMES)
+                        && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.secondLastName, ValidationEnums.CUST_INFO_SIZE_40))
+                {
 
-            }
-            else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.custLegalName, ValidationEnums.CUST_INFO_NAMES)
-                    && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.custLegalName, ValidationEnums.CUST_INFO_SIZE_140))
-            {
+                }
+                else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.custLegalName, ValidationEnums.CUST_INFO_NAMES)
+                        && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.custLegalName, ValidationEnums.CUST_INFO_SIZE_140))
+                {
 
-            }
-            else if (!validateCustType(enrollmentRq.reqBPostAccountRelationship.custInfo.custType))
-            {
-
+                }
+                **/
+                throw new SerfiException(ResponseServiceEnum.INVALID_ACCTID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_PERSON.getMessage() , ResponseServiceEnum.INVALID_TYPE_PERSON.getHttpCode());
             }
             else if (!validateIdentType(enrollmentRq.reqBPostAccountRelationship.custInfo.custIdent.custIdentType))
             {
-
+                throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_ID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_ID.getMessage() , ResponseServiceEnum.INVALID_TYPE_ID.getHttpCode());
             }
             else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.custIdent.custIdentId,ValidationEnums.IDENT_ID)
                     && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID_SIZE))
             {
-
+                throw new SerfiException(ResponseServiceEnum.INVALID_ID.getErrorCode(), ResponseServiceEnum.INVALID_ID.getMessage(), ResponseServiceEnum.INVALID_ID.getHttpCode());
             }
             else if (!validateKeyType(enrollmentRq.reqBPostAccountRelationship.key.keyType, enrollmentRq.reqBPostAccountRelationship.key.keyId))
             {
-
+                throw new SerfiException(ResponseServiceEnum.INVALID_KEY_TYPE.getErrorCode(), ResponseServiceEnum.INVALID_KEY_TYPE.getMessage(), ResponseServiceEnum.INVALID_KEY_TYPE.getHttpCode());
             }
             else if (!validateKeyStatus(enrollmentRq.reqBPostAccountRelationship.key.keyStatus))
             {
-
+                throw new SerfiException(ResponseServiceEnum.INVALID_KEY_STATUS.getErrorCode(), ResponseServiceEnum.INVALID_KEY_STATUS.getMessage(), ResponseServiceEnum.INVALID_KEY_STATUS.getHttpCode());
             }
             else if (!validateDateFormat(enrollmentRq.reqBPostAccountRelationship.effDtKey.effDtCreate)) {
-              
+                throw new SerfiException(ResponseServiceEnum.INVALID_DT_CREATE.getErrorCode(), ResponseServiceEnum.INVALID_DT_CREATE.getMessage(), ResponseServiceEnum.INVALID_DT_CREATE.getHttpCode());
             }
             else if (!validateDateFormat(enrollmentRq.reqBPostAccountRelationship.effDtKey.effDtModify))
             {
+                throw new SerfiException(ResponseServiceEnum.INVALID_DT_MODIFY.getErrorCode(), ResponseServiceEnum.INVALID_DT_MODIFY.getMessage(), ResponseServiceEnum.INVALID_DT_MODIFY.getHttpCode());
                 //Excepcion
             }
             else if (!validateDateFormat(enrollmentRq.reqBPostAccountRelationship.effDtKey.effDtConsent))
             {
+                throw new SerfiException(ResponseServiceEnum.INVALID_DT_CONSENT.getErrorCode(), ResponseServiceEnum.INVALID_DT_CONSENT.getMessage(), ResponseServiceEnum.INVALID_DT_CONSENT.getHttpCode());
                 //Excepcion
             }
             else if (!validateFlowServices(enrollmentRq.reqBPostAccountRelationship.vaultInsc.flowService)) {
-
+                throw new SerfiException(ResponseServiceEnum.INVALID_FLOW_SERVICES.getErrorCode(), ResponseServiceEnum.INVALID_FLOW_SERVICES.getMessage(), ResponseServiceEnum.INVALID_FLOW_SERVICES.getHttpCode());
             }
             else if (!validateVaultName(enrollmentRq.reqBPostAccountRelationship.vaultInsc.vaultName))
             {
-
+                throw new SerfiException(ResponseServiceEnum.INVALID_VAULT_NAME.getErrorCode(), ResponseServiceEnum.INVALID_VAULT_NAME.getMessage(), ResponseServiceEnum.INVALID_VAULT_NAME.getHttpCode());
             }
 
             return true;
@@ -144,21 +151,30 @@ namespace Services
         }
 
 
-        public bool validateCustType(string custType)
+        public bool validateCustType(CustInfo custInfo)
         {
-            switch (custType)
+            if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PN))
+            {         
+                return custInfo.firstName != null
+                    && custInfo.secondName != null
+                    && custInfo.lastName != null
+                    && custInfo.secondLastName != null
+                    && string.IsNullOrEmpty(custInfo.custLegalName);
+            }
+            else if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PJ))
             {
-                case ValidationEnums.CUST_INFO_LEGAL_NAME_PN:
-                    return true;
-                    break;
-                case ValidationEnums.CUST_INFO_LEGAL_NAME_PJ:
-                    return true;
-                    break;
-                default:
-                    return false;
-                    break;
+                return custInfo.custLegalName != null
+                    && string.IsNullOrEmpty(custInfo.firstName)
+                    && string.IsNullOrEmpty(custInfo.secondName)
+                    && string.IsNullOrEmpty(custInfo.lastName)
+                    && string.IsNullOrEmpty(custInfo.secondLastName);
+            }
+            else
+            {
+                return false;
             }
         }
+
         public bool validateKeyType(string keyType, string value){
             switch (keyType)
             {

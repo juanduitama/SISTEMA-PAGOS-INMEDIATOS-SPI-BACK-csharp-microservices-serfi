@@ -9,6 +9,7 @@ using SPI_Enrollment_Service.Models.redeban;
 using SPI_Enrollment_Service.Models.enrollment;
 using Models;
 using Models.openSearchModel;
+using SPI_Enrollment_Service.Models.redeban.response;
 
 namespace SPI_Enrollment_Service.Mapper
 {
@@ -75,6 +76,38 @@ namespace SPI_Enrollment_Service.Mapper
             osIndexDefinitive.effDtCreate = enrollmentRq.reqBPostAccountRelationship.effDtKey.effDtCreate;
             osIndexDefinitive.effDtModify = enrollmentRq.reqBPostAccountRelationship.effDtKey.effDtModify;
             return osIndexDefinitive;
+        }
+
+        public MsgInformationResponseSerfi mapOSMessageResponse(OSDefinitive osIndexDefinitive, EnrollmentRq enrollmentRq, MessageInformation messageInformation)
+        {
+            MsgInformationResponseSerfi msgInformationResponseSerfi = new MsgInformationResponseSerfi();
+            Meta meta = new Meta();
+            meta.uuid = enrollmentRq.enrollmenAccountHeaders.uuId;
+            meta.timeStamp = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
+            meta.systemId = "";
+            msgInformationResponseSerfi.meta = meta;
+
+            msgInformationResponseSerfi.statusCodigo = messageInformation.msgCode;
+            msgInformationResponseSerfi.statusDesc = messageInformation.msgDescription;
+
+            AditionalInfo aditionalInfoItem = new AditionalInfo();
+            aditionalInfoItem.codigo = "";
+            aditionalInfoItem.detalle = "";
+
+
+            List<AditionalInfo> aditionalInfoList = new List<AditionalInfo>();
+            aditionalInfoList.Add(aditionalInfoItem);
+
+            msgInformationResponseSerfi.aditionalInfo = aditionalInfoList;
+
+
+            Data data = new Data();
+            //No siempre se llena este merchantId
+            data.merchantId = "";
+            msgInformationResponseSerfi.data = data;
+
+
+            return msgInformationResponseSerfi;
         }
 
     }

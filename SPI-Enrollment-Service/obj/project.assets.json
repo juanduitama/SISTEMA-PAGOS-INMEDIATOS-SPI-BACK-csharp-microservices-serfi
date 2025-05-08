@@ -5794,23 +5794,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sebastian\\.nuget\\packages\\": {},
+    "C:\\Users\\juanduitama\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
+      "projectUniqueName": "C:\\Users\\juanduitama\\Documents\\spi\\serfinanzas\\eks\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
       "projectName": "SPI-Enrollment-Service",
-      "projectPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
-      "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\obj\\",
+      "projectPath": "C:\\Users\\juanduitama\\Documents\\spi\\serfinanzas\\eks\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\SPI-Enrollment-Service.csproj",
+      "packagesPath": "C:\\Users\\juanduitama\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\juanduitama\\Documents\\spi\\serfinanzas\\eks\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Enrollment-Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juanduitama\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
