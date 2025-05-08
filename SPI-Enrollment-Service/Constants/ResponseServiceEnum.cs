@@ -16,6 +16,7 @@ namespace SPI_Enrollment_Service.constants
         /// Constante de error en caso de que se presente un fallo al intentar operación sobre DynamoDB.
         /// </summary>
         FOUND_KEY,
+        CONNECTION_OS,
         INVALID_ACCTYPE,
         INVALID_ACCTID,
         INVALID_TYPE_PERSON,
@@ -44,6 +45,7 @@ namespace SPI_Enrollment_Service.constants
             return responseService switch
             {
                 ResponseServiceEnum.FOUND_KEY => "206",
+                ResponseServiceEnum.CONNECTION_OS => "500",
                 ResponseServiceEnum.INVALID_ACCTYPE => "400",
                 ResponseServiceEnum.INVALID_ACCTID => "400",
                 ResponseServiceEnum.INVALID_TYPE_PERSON => "400",
@@ -68,6 +70,7 @@ namespace SPI_Enrollment_Service.constants
             return responseService switch
             {
                 ResponseServiceEnum.FOUND_KEY => "La llave que se quiere crear ya se encuentra registrada",
+                ResponseServiceEnum.CONNECTION_OS => "No se generó la conexión con open search",
                 ResponseServiceEnum.INVALID_ACCTYPE => "[AcctInfo.acctType] no corresponde a los tipos de cuenta permitidos.",
                 ResponseServiceEnum.INVALID_ACCTID => "[ActtInfo.acctId] no corresponde a los valores permitidos como número de cuenta.",
                 ResponseServiceEnum.INVALID_TYPE_PERSON => "[custInfo.custType] no cumple con los valores de tipo de personas (PN y PJ) y/o no cumplen con los campos obligatorios ",
@@ -92,6 +95,7 @@ namespace SPI_Enrollment_Service.constants
             return responseService switch
             {
                 ResponseServiceEnum.FOUND_KEY => 206,
+                ResponseServiceEnum.CONNECTION_OS => 500,
                 ResponseServiceEnum.INVALID_ACCTYPE => 400,
                 ResponseServiceEnum.INVALID_ACCTID => 400,
                 ResponseServiceEnum.INVALID_TYPE_PERSON => 400,

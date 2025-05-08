@@ -1,5 +1,6 @@
 ﻿using OpenSearch.Client;
 using OpenSearch.Net;
+using SPI_Enrollment_Service.constants;
 
 namespace SPI_Enrollment_Service.Repositories
 {
@@ -9,12 +10,17 @@ namespace SPI_Enrollment_Service.Repositories
 
         public OpenSearchClientRepository(string uri, string username, string password, string defaultIndex)
         {
+            try{
             var settings = new ConnectionSettings(new Uri(uri))
                 .BasicAuthentication(username, password)
                 .ServerCertificateValidationCallback(CertificateValidations.AllowAll)
                 .DefaultIndex(defaultIndex);
 
             Client = new OpenSearchClient(settings);
+            }catch(Exception ex){
+                Console.WriteLine($"Error al conextar con open search: {ex.Message}");
+                throw new SerfiException(ResponseServiceEnum.CONNECTION_OS.getErrorCode(), ResponseServiceEnum.CONNECTION_OS.getMessage(), ResponseServiceEnum.CONNECTION_OS.getHttpCode());
+            }
         }
     }
 }

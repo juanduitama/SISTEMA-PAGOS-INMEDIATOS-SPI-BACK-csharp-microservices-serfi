@@ -9,7 +9,7 @@ namespace SPI_Enrollment_Service.constants
     /// <summary>
     /// HeadersEnum define los valores para los encabezados
     /// </summary>
-    public static class HeadersEnum
+    public static class RedHeadersEnum
     {
         /// <summary>
         /// Indica el tamaño anticipado del cuerpo de carga útil.
@@ -98,5 +98,7 @@ namespace SPI_Enrollment_Service.constants
         public const string RQ_ID = "X-RqUID";
 
         public const string RBM_USER_DATE = "RBM-UserDate";
+
+
     }
 }

@@ -24,6 +24,23 @@ namespace SPI_Enrollment_Service.Mapper
 
         }
 
+        public void AddCreateHeaders(HttpClient request, HeadersRq headers)
+        {
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CONTENT_TYPE, headers.ContentType);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.DATE, headers.Date);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_FROM, headers.RBMFrom);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ACCEPT, headers.Accept);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_FORWARDED_FOR, headers.XForwardedFor);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_REQUEST_ID, Guid.NewGuid().ToString("D"));
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ORIGIN, ConstantsEnum.ORIGIN);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CHANNEL, headers.Channel);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RQ_ID, random.NextInt64(100000000000, 999999999999).ToString());
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_USER_DATE, headers.RBMUserDate);
+            Console.WriteLine("Estos son los headers para http");
+
+            Console.WriteLine(request.DefaultRequestHeaders.ToString());
+        }
+
         //Cabeceras de OS a Redeban
         public HeadersRq MapHeadersFromRequest(EnrollmentAccountHeaders headersRq)
         {
@@ -34,7 +51,7 @@ namespace SPI_Enrollment_Service.Mapper
             headersRed.Date = newDate;
             headersRed.ContentType = ConstantsEnum.APPLICATION_JSON;
             headersRed.Accept = ConstantsEnum.APPLICATION_JSON;
-            headersRed.Origin = HeadersEnum.ORIGIN;
+            headersRed.Origin = RedHeadersEnum.ORIGIN;
             headersRed.XForwardedFor = ConstantsEnum.IP_ORIGIN;
             headersRed.XRequestId = headersRq.uuId;
             headersRed.RBMFrom = ConstantsEnum.RBM_FROM;

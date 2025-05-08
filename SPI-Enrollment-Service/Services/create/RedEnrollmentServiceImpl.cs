@@ -11,6 +11,7 @@ using OpenSearch.Client;
 using Repositories;
 using Services;
 using SPI_directory_service.Util;
+using SPI_Enrollment_Service.Mapper;
 using SPI_Enrollment_Service.model;
 using SPI_Enrollment_Service.Models.enrollment;
 using SPI_Enrollment_Service.Models.redeban;
@@ -37,6 +38,8 @@ namespace SPI_Enrollment_Service.service.create
 
 
         private static readonly JsonSerializerOptions _jsonOptions;
+
+        private readonly RedRqMapper redMapper;
         /// <summary>
         /// Constructor estático que inicializa los recursos compartidos.
         /// Configura el cliente HTTP una sola vez para su reutilización en todas las solicitudes.
@@ -45,6 +48,7 @@ namespace SPI_Enrollment_Service.service.create
         {
             _BuilderHttpUtil = new BuilderHttpUtil();
             _httpClient = _BuilderHttpUtil.BuildClient();
+            redMapper = new RedRqMapper();
         }
 
         /// <summary>
@@ -75,7 +79,7 @@ namespace SPI_Enrollment_Service.service.create
                 ClearHeaders();
 
                 // Agregar cabeceras HTTP necesarias
-                HeaderMapper.AddCreateHeaders(_httpClient, headers);
+                redMapper.AddCreateHeaders(_httpClient, headers);
 
                 // Configurar cabeceras adicionales específicas para POST
                 _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", ConstantsEnum.APPLICATION_JSON);

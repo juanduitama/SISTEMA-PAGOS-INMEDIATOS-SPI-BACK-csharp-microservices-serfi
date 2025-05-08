@@ -1,4 +1,5 @@
 ﻿using SPI_Enrollment_Service.model.model;
+using SPI_Enrollment_Service.Models.redeban.response;
 using System;
 using System.Collections.Generic;
 using System.Linq;

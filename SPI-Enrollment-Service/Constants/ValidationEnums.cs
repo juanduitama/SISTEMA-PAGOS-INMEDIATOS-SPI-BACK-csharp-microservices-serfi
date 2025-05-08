@@ -15,8 +15,8 @@
         public const string CUST_INFO_SIZE_40 = "40";
         public const string CUST_INFO_SIZE_140 = "140";
 
-        public const string CUST_INFO_LEGAL_NAME_PN = "PN";
-        public const string CUST_INFO_LEGAL_NAME_PJ = "PJ";
+        public const string CUST_INFO_LEGAL_NAME_PN = "PERSON";
+        public const string CUST_INFO_LEGAL_NAME_PJ = "COMMERCE";
 
         public const string CUST_IDENT_TYPE_CC = "CC";
         public const string CUST_IDENT_TYPE_CE = "CE";
@@ -45,7 +45,7 @@
 
         public const string KEY_ACTIVE_STATUS = "ACTIVA";
 
-        public const string VAULT_NAME_RBM = "RBM";
+        public const string VAULT_NAME_RBM = "REDEBAN";
 
         public const string FLOW_SERVICES_CREATE = "creacionLinea";
 

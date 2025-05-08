@@ -23,9 +23,8 @@ namespace Services
                 throw new SerfiException(ResponseServiceEnum.INVALID_ACCTID.getErrorCode(), ResponseServiceEnum.INVALID_ACCTID.getMessage() + ValidationEnums.ACCOUNT_ID, ResponseServiceEnum.INVALID_ACCTYPE.getHttpCode());
             }            
             else if (!validateCustType(enrollmentRq.reqBPostAccountRelationship.custInfo))
-            {
-                /** NO SE SI SEAN NECESARIAS ESTAS VALIDACIONES
-                 * else if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.firstName, ValidationEnums.CUST_INFO_NAMES)
+            { 
+                 if (!validateRegex(enrollmentRq.reqBPostAccountRelationship.custInfo.firstName, ValidationEnums.CUST_INFO_NAMES)
                         && !validateSize(enrollmentRq.reqBPostAccountRelationship.custInfo.firstName, ValidationEnums.CUST_INFO_SIZE_40))
                 {
 
@@ -50,7 +49,6 @@ namespace Services
                 {
 
                 }
-                **/
                 throw new SerfiException(ResponseServiceEnum.INVALID_ACCTID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_PERSON.getMessage() , ResponseServiceEnum.INVALID_TYPE_PERSON.getHttpCode());
             }
             else if (!validateIdentType(enrollmentRq.reqBPostAccountRelationship.custInfo.custIdent.custIdentType))
@@ -90,7 +88,7 @@ namespace Services
             {
                 throw new SerfiException(ResponseServiceEnum.INVALID_VAULT_NAME.getErrorCode(), ResponseServiceEnum.INVALID_VAULT_NAME.getMessage(), ResponseServiceEnum.INVALID_VAULT_NAME.getHttpCode());
             }
-
+            Console.WriteLine("validacion Exitosa");
             return true;
         }
 
@@ -156,9 +154,7 @@ namespace Services
             if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PN))
             {         
                 return custInfo.firstName != null
-                    && custInfo.secondName != null
                     && custInfo.lastName != null
-                    && custInfo.secondLastName != null
                     && string.IsNullOrEmpty(custInfo.custLegalName);
             }
             else if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PJ))
