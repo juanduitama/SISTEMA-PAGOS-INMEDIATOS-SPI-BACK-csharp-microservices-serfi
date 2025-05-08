@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace SPI_Enrollment_Service.model
 {
     public class MsgInformationResponseSerfi
+        //: IActionResult
     {
         /// <summary>
         /// Objeto que obtiene los metadatos de la operación.
@@ -46,5 +48,11 @@ namespace SPI_Enrollment_Service.model
         [Required]
         [JsonPropertyName("data")]
         public Data? data {  get; set; }
+
+        //public async Task ExecuteResultAsync(ActionContext context)
+        //{
+        //    var objectResult = new OkObjectResult(this);
+        //    await objectResult.ExecuteResultAsync(context);
+        //}
     }
 }

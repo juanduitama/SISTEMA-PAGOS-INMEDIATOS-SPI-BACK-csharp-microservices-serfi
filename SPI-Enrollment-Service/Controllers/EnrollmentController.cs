@@ -92,7 +92,8 @@ namespace SPI_directory_service.Controllers
 
                     MsgInformationResponseSerfi responseService = rqMapperOs.mapOSMessageResponse(entityToSave, request, responseRedeban);
 
-                    return responseService;
+                    //return responseService;
+                    return Ok(responseService);
                 }
                 catch (JsonException ex)
                 {
