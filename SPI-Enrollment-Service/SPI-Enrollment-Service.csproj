@@ -11,15 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Account.cs" />
-    <Compile Remove="Models\HttpResponseWrapper.cs" />
+    <Compile Remove="domain\models\Account.cs" />
+    <Compile Remove="domain\models\HttpResponseWrapper.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Mapper\NewFile.txt" />
-    <None Remove="Models\NewFile.txt" />
-    <None Remove="Models\ResBPostAccountRelationship" />
-    <None Remove="Util\NewFile.txt" />
+    <None Remove="application\mapper\NewFile.txt" />
+    <None Remove="domain\models\NewFile.txt" />
+    <None Remove="domain\models\ResBPostAccountRelationship" />
+    <None Remove="application\util\NewFile.txt" />
   </ItemGroup>
 
   <ItemGroup>

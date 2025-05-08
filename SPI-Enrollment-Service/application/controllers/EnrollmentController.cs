@@ -1,0 +1,147 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Json;
+using domain.constants;
+using application.Services;
+using application.mapper;
+using domain.models;
+using domain.models.enrollment;
+using domain.models.openSearchModel;
+using domain.models.redeban;
+using domain.models.redeban.response;
+using application.Util;
+using application.interfaces;
+using application.util;
+
+namespace application.controllers
+{
+    [ApiController]
+    [Route("Directory/[controller]")]
+    public class EnrollmentController : ControllerBase
+    {
+        
+        private readonly IRedEnrollmentService _enrollmentService;
+        private readonly ValidateService validateService = new ValidateService();
+        private readonly ILogger<EnrollmentController> _logger;
+        private readonly UriUtil _uriUtil;
+        private readonly IOpenSearchService _openSearchService = new OpenSearchService();
+        private readonly RedRqMapper _redRqMapper = new RedRqMapper();
+        private readonly RqMapperOs _rqMapperOs = new RqMapperOs();
+        private readonly HeaderSerfiMapper _headersMapper = new HeaderSerfiMapper();
+
+
+
+        public EnrollmentController(            
+            IRedEnrollmentService enrollmentService,
+            ILogger<EnrollmentController> logger
+            )
+        {
+            _enrollmentService = enrollmentService;
+            _logger = logger;
+            _uriUtil = new UriUtil();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader,
+                                                [FromBody] ReqBPostAccountRelationship body)
+        {
+
+            EnrollmentRq request = new EnrollmentRq();
+
+            request.enrollmenAccountHeaders = _headersMapper.mapHeaders(apiKeyHeader, authHeader, uuidHeader, timestampsHeader, systemIdHeader);
+            string headers = await UtilCommons.Object2String(request.enrollmenAccountHeaders);
+            _logger.LogInformation("headers: " + headers);
+
+            request.reqBPostAccountRelationship = body;
+            string body1 = await UtilCommons.Object2String(request.reqBPostAccountRelationship);
+            _logger.LogInformation("body: " + body1);
+
+            try
+            {
+                _logger.LogInformation("Iniciando proceso de inscripción");
+                MessageInformation responseRedeban;
+                validateService.ValidateServiceModel(request);
+                _logger.LogInformation("Termino el proceso de validacion");
+                OSDefinitive opSearchEntity = await _openSearchService.SearchKey(request.reqBPostAccountRelationship.key.keyType, request.reqBPostAccountRelationship.key.keyId);
+                _logger.LogInformation($"opSearchEntity: {opSearchEntity.ToString()}");
+
+                if (opSearchEntity == null)
+                {
+                    _logger.LogInformation("Iniciando proceso de conexión a cámara");
+                    //string apiUri = _uriUtil.BuildUri(ConstantsEnum.ENROLLMENT);
+                    string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/Enrrollment";
+                    _logger.LogInformation($"URL completa: {apiUri}");
+
+                    // Obtener headers de la solicitud
+                    HeadersRq headersRq = _redRqMapper.MapHeadersFromRequest(request.enrollmenAccountHeaders);
+                    EnrollmentRqRed enrollmentBody = _redRqMapper.MapBodyFromRequest(request.reqBPostAccountRelationship);
+
+                    // Llamar al servicio
+                    responseRedeban = await _enrollmentService.Create(apiUri, headersRq, enrollmentBody);
+
+                    if (responseRedeban.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || responseRedeban.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
+                    {
+                        _logger.LogInformation("Se creo la llave exitosamente: " + responseRedeban.ToString());
+                    }
+                    else
+                    {
+                        _logger.LogError($"No se pudo crear la llave: " + responseRedeban.ToString());
+                        throw new Exception();
+                    }
+                }
+                else
+                {
+                    _logger.LogError($"Se encontró un registro con la llave: " + request.reqBPostAccountRelationship.key.keyId);
+                    throw new SerfiException(ResponseServiceEnum.FOUND_KEY.getErrorCode(), ResponseServiceEnum.FOUND_KEY.getMessage(), ResponseServiceEnum.FOUND_KEY.getHttpCode());
+                }
+
+                _logger.LogInformation("Iniciando proceso de guardado en open search.");
+                OSDefinitive entityToSave = _rqMapperOs.mapOSDefinitiveFromRequest(request);
+                await _openSearchService.SaveKey(entityToSave);
+                _logger.LogInformation("guardado en open search.");
+
+                MsgInformationResponseSerfi responseService = _rqMapperOs.mapOSMessageResponse(entityToSave, request, responseRedeban);
+
+                //return responseService;
+                return Ok(responseService);
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError($"Error al procesar JSON: {ex.Message}");
+
+                return BadRequest(new
+                {
+                    error = "Formato JSON inválido",
+                    message = ex.Message
+                });
+            }
+            catch (SerfiException ex)
+            {
+                _logger.LogError($"Error de serfinanzas: {ex.Message}");
+
+                return BadRequest(new
+                {
+                    code = ex.errorCode,
+                    error = ex.message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en la inscripción: {ex.Message}");
+
+                return StatusCode(500, new
+                {
+                    error = "Error interno del servidor",
+                    message = ex.Message,
+                    timestamp = DateTime.UtcNow.ToString()
+                });
+            }
+        }
+    }
+}

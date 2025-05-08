@@ -2,9 +2,10 @@ using Amazon;
 using Amazon.Runtime;
 using Amazon.SecretsManager;
 using Amazon.SimpleSystemsManagement;
+using application.interfaces;
+using application.Services.create;
 using DotNetEnv;
-using Repositories;
-using SPI_Enrollment_Service.service.create;
+using infrastructure.repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
