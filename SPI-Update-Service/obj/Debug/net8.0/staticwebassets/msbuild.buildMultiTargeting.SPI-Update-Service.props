@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\SPI-Update-Service.props" />
-</Project>
