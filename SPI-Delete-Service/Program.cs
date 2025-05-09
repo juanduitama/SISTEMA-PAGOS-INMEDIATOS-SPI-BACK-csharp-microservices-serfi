@@ -1,6 +1,5 @@
-using SPI_Delete_Service.service.delete;
-using SPI_Delete_Service.service.service.delete;
-
+using SPI_Delete_Service.application.interfaces;
+using SPI_Delete_Service.application.services.delete;
 
 var builder = WebApplication.CreateBuilder(args);
 
