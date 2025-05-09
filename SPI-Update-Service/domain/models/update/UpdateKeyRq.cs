@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using domain.models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace domain.models.enrollment
 {

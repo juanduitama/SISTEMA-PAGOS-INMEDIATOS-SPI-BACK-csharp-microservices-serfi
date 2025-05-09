@@ -2,15 +2,12 @@
 using domain.models;
 using domain.models.enrollment;
 using domain.models.openSearchModel;
-using SPI_Update_Service.domain.models.update;
 using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace application.Services
 {
     public class ValidateService
     {
-
            
         public bool ValidateServiceUpdateKeyModel(UpdateKeyRq updateKey) {
 
@@ -65,7 +62,7 @@ namespace application.Services
         }
 
 
-        public bool ValidateServiceUpdateKeyModel(UpdateAccountRq updateAccount)
+        public bool ValidateServiceUpdateAccountModel(UpdateAccountRq updateAccount)
         {
 
             //Validaciones oldAcctType
@@ -105,6 +102,11 @@ namespace application.Services
                     && !validateSize(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID_SIZE))
             {
                 throw new SerfiException(ResponseServiceEnum.INVALID_ID.getErrorCode(), ResponseServiceEnum.INVALID_ID.getMessage(), ResponseServiceEnum.INVALID_ID.getHttpCode());
+            }
+            //Validaciones keyType y KeyId
+            else if (!validateKeyType(updateAccount.reqBPatchAccount.key.keyType, updateAccount.reqBPatchAccount.key.keyId, ConstantsEnum.TYPE_KEY_ID))
+            {
+                throw new SerfiException(ResponseServiceEnum.INVALID_KEY_TYPE.getErrorCode(), ResponseServiceEnum.INVALID_KEY_TYPE.getMessage(), ResponseServiceEnum.INVALID_OLD_KEY_TYPE.getHttpCode());
             }
             //Validaciones VaultInsc VaultName
             else if (!validateVaultName(updateAccount.reqBPatchAccount.vaultInsc.vaultName))
@@ -176,40 +178,25 @@ namespace application.Services
                     break;
             }
         }
-
-
-        public bool validateCustType(CustInfoRq custInfo)
-        {
-            if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PN))
-            {
-                return false;
-
-            }
-            else if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PJ))
-            {
-                return false;
-            }
-            return true;
-        }
         public bool validateCustType(CustInfo custInfo)
         {
             if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PN))
             {
-                return false;
+                return true;
 
             }
             else if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PJ))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
-        public bool validateKeyType(string keyType, string value, int type){
+        public bool validateKeyType(string keyType, string keyId, int type){
             switch (keyType)
             {
                 case ValidationEnums.KEY_TYPE_IDENT:
-                    if(!validateRegex(value, ValidationEnums.KEY_ID_IDENT)){
+                    if(!validateRegex(keyId, ValidationEnums.KEY_ID_IDENT)){
                         if(type == 0){
                             throw new SerfiException(ResponseServiceEnum.INVALID_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_KEY_ID.getHttpCode());
                         }else if( type == 1){
@@ -217,13 +204,12 @@ namespace application.Services
                         }else{
                              throw new SerfiException(ResponseServiceEnum.INVALID_NEW_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getHttpCode());
                         }
-                        return false;
                     }else{
                         return true;
                     }
                     break;
                 case ValidationEnums.KEY_TYPE_CEL:
-                    if(!validateRegex(value, ValidationEnums.KEY_ID_CEL)){
+                    if(!validateRegex(keyId, ValidationEnums.KEY_ID_CEL)){
                         if(type == 0){
                             throw new SerfiException(ResponseServiceEnum.INVALID_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_KEY_ID.getHttpCode());
                         }else if( type == 1){
@@ -231,13 +217,12 @@ namespace application.Services
                         }else{
                              throw new SerfiException(ResponseServiceEnum.INVALID_NEW_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getHttpCode());
                         }
-                        return false;
                     }else{
                         return true;
                     }
                     break;
                 case ValidationEnums.KEY_TYPE_EMAIL:
-                    if(!validateRegex(value, ValidationEnums.KEY_ID_EMAIL)){
+                    if(!validateRegex(keyId, ValidationEnums.KEY_ID_EMAIL)){
                         if(type == 0){
                             throw new SerfiException(ResponseServiceEnum.INVALID_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_KEY_ID.getHttpCode());
                         }else if( type == 1){
@@ -245,13 +230,12 @@ namespace application.Services
                         }else{
                              throw new SerfiException(ResponseServiceEnum.INVALID_NEW_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getHttpCode());
                         }
-                        return false;
                     }else{
                         return true;
                     }
                     break;
                 case ValidationEnums.KEY_TYPE_ALIAS:
-                    if(!validateRegex(value, ValidationEnums.KEY_ID_ALIAS)){
+                    if(!validateRegex(keyId, ValidationEnums.KEY_ID_ALIAS)){
                         if(type == 0){
                             throw new SerfiException(ResponseServiceEnum.INVALID_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_KEY_ID.getHttpCode());
                         }else if( type == 1){
@@ -259,13 +243,12 @@ namespace application.Services
                         }else{
                              throw new SerfiException(ResponseServiceEnum.INVALID_NEW_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getHttpCode());
                         }
-                        return false;
                     }else{
                         return true;
                     }
                     break;
                 case ValidationEnums.KEY_TYPE_MERCH:
-                    if(!validateRegex(value, ValidationEnums.KEY_ID_MERCH)){
+                    if(!validateRegex(keyId, ValidationEnums.KEY_ID_MERCH)){
                         if(type == 0){
                             throw new SerfiException(ResponseServiceEnum.INVALID_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_KEY_ID.getHttpCode());
                         }else if( type == 1){
@@ -273,7 +256,6 @@ namespace application.Services
                         }else{
                              throw new SerfiException(ResponseServiceEnum.INVALID_NEW_KEY_ID.getErrorCode(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getMessage(), ResponseServiceEnum.INVALID_NEW_KEY_ID.getHttpCode());
                         }
-                        return false;
                     }else{
                         return true;
                     }
@@ -326,6 +308,7 @@ namespace application.Services
         public bool validateRegex(string value, string regex)
         {
             if (value != null && !Regex.IsMatch(value, regex)){
+                Console.WriteLine("No valido el regex correctamente");
                 return false;
             }
 

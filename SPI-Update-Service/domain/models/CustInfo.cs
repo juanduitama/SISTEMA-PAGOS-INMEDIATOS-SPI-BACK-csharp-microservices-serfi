@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace domain.models
 {
@@ -18,6 +19,7 @@ namespace domain.models
         public CustIdent custIdent {  get; set; }
 
 
+        [ValidateNever]
         [JsonPropertyName("custContact")]
         public CustContact custContact { get; set; }
 

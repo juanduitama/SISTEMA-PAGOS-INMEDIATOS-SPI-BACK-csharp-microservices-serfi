@@ -17,8 +17,9 @@ using domain.models.openSearchModel;
 using application.interfaces;
 using domain.models.redeban.response;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace SPI_directory_service.Controllers
+namespace application.controllers
 {
     [ApiController]
     [Route("Directory/[controller]")]
@@ -78,7 +79,7 @@ namespace SPI_directory_service.Controllers
 
                 MessageInformation responseRedeban;
 
-                validateService.ValidateServiceUpdateKeyModel(request);
+                validateService.ValidateServiceUpdateAccountModel(request);
 
                 _logger.LogInformation("Termino el proceso de validacion");
 
@@ -136,14 +137,32 @@ namespace SPI_directory_service.Controllers
             {
                 _logger.LogError($"Error al procesar JSON: {ex.Message}");
 
-                throw new SerfiException(ResponseServiceEnum.BAD_REQUEST_JSON.getErrorCode(), ResponseServiceEnum.BAD_REQUEST_JSON.getMessage(), ResponseServiceEnum.BAD_REQUEST_JSON.getHttpCode());
+                return BadRequest(new
+                {
+                    error = "Formato JSON inválido",
+                    message = ex.Message
+                });
+            }
+            catch (SerfiException ex)
+            {
+                _logger.LogError($"Error de serfinanzas: {ex.Message}");
+
+                return BadRequest(new
+                {
+                    code = ex.errorCode,
+                    error = ex.message
+                });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error en la actualización de cuenta: {ex.Message}");
+                _logger.LogError($"Error en la inscripción: {ex.Message}");
 
-
-                throw new SerfiException(ResponseServiceEnum.SERVICE_INTERNAL_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_INTERNAL_ERROR.getMessage(), ResponseServiceEnum.SERVICE_INTERNAL_ERROR.getHttpCode());
+                return StatusCode(500, new
+                {
+                    error = "Error interno del servidor",
+                    message = ex.Message,
+                    timestamp = DateTime.UtcNow.ToString()
+                });
             }
         }
 
@@ -159,11 +178,11 @@ namespace SPI_directory_service.Controllers
             UpdateKeyRq request = new UpdateKeyRq();
             request.updateHeaders = _headersMapper.mapHeaders(apiKeyHeader, authHeader, uuidHeader, timestampsHeader, systemIdHeader);
             string headers = await UtilCommons.Object2String(request.updateHeaders);
-            _logger.LogInformation("headers: " + headers);
+            Console.WriteLine("headers: " + headers);
 
             request.reqBPatchKey = body;
             string body1 = await UtilCommons.Object2String(request.reqBPatchKey);
-            _logger.LogInformation("body: " + body1);
+            Console.WriteLine("body: " + body1);
 
 
             try
@@ -221,9 +240,33 @@ namespace SPI_directory_service.Controllers
             {
                 _logger.LogError($"Error al procesar JSON: {ex.Message}");
 
-                throw new SerfiException(ResponseServiceEnum.BAD_REQUEST_JSON.getErrorCode(), ResponseServiceEnum.BAD_REQUEST_JSON.getMessage(), ResponseServiceEnum.BAD_REQUEST_JSON.getHttpCode());
+                return BadRequest(new
+                {
+                    error = "Formato JSON inválido",
+                    message = ex.Message
+                });
             }
+            catch (SerfiException ex)
+            {
+                _logger.LogError($"Error de serfinanzas: {ex.Message}");
 
+                return BadRequest(new
+                {
+                    code = ex.errorCode,
+                    error = ex.message
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en la inscripción: {ex.Message}");
+
+                return StatusCode(500, new
+                {
+                    error = "Error interno del servidor",
+                    message = ex.Message,
+                    timestamp = DateTime.UtcNow.ToString()
+                });
+            }
         }
     }
 }

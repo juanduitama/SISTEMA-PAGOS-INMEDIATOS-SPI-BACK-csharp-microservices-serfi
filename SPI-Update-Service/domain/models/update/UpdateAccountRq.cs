@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using domain.models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace domain.models.enrollment
 {
@@ -7,7 +8,7 @@ namespace domain.models.enrollment
     {
 
         public UpdateHeaders updateHeaders { get; set; }
-        [Required]
+        [ValidateNever]
         public ReqBPatchAccount reqBPatchAccount { get; set; }
 
     }

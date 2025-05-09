@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace domain.models
 {
@@ -14,25 +15,26 @@ namespace domain.models
     /// </summary>
     public class ReqBPatchAccount
     {
-        [Required]
+        [ValidateNever]
         [JsonPropertyName("acctInfo")]
         public AcctInfo acctInfo { get; set; }
 
-        [Required]
+        
         [JsonPropertyName("custInfo")]
         public CustInfo custInfo { get; set; }
 
-        [Required]
+        
+        [ValidateNever]
         [JsonPropertyName("key")]
         public Key key { get; set; }
 
-        [Required]
+        [ValidateNever]
         [JsonPropertyName("vaultInsc")]
         public VaultInsc vaultInsc { get; set; }
 
-        [Required]
+        
         [JsonPropertyName("effDtKey")]
-        public EffDtKey effDtKey { get; set; }
+        public EffDtKey? effDtKey { get; set; }
 
     }
 }

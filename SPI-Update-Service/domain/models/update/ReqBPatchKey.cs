@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.ComponentModel.DataAnnotations;
-using SPI_Update_Service.domain.models.update;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace domain.models
 {
@@ -17,13 +17,15 @@ namespace domain.models
     {
         
         [JsonPropertyName("custInfo")]
-        public CustInfoRq custInfo {get; set;}
+        public CustInfo custInfo {get; set;}
 
+        [ValidateNever]
         [JsonPropertyName("key")]
         public Key key { get; set; }
 
+        [ValidateNever]
         [JsonPropertyName("vaultInsc")]
-        public VaultInscRq vaultInsc {get; set;}
+        public VaultInsc vaultInsc {get; set;}
 
         [JsonPropertyName("effDtKey")]
         public EffDtKey effDtKey { get; set; }
