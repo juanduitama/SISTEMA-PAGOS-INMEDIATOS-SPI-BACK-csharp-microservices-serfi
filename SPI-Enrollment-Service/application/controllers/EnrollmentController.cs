@@ -14,6 +14,7 @@ using domain.models.redeban.response;
 using application.Util;
 using application.interfaces;
 using application.util;
+using System.ComponentModel.DataAnnotations;
 
 namespace application.controllers
 {
@@ -44,11 +45,11 @@ namespace application.controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader,
+        public async Task<IActionResult> Create([Required][FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
+                                                [Required][FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
+                                                [Required][FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
+                                                [Required][FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
+                                                [Required][FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader,
                                                 [FromBody] ReqBPostAccountRelationship body)
         {
 
