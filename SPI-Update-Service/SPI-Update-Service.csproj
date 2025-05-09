@@ -11,6 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="domain\models\update\NewFile.txt" />
     <None Remove="domain\models\update\UpdateAccountRq" />
   </ItemGroup>
@@ -33,7 +40,6 @@
     <Folder Include="domain\constants\" />
     <Folder Include="domain\models\openSearchModel\" />
     <Folder Include="infrastructure\repositories\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

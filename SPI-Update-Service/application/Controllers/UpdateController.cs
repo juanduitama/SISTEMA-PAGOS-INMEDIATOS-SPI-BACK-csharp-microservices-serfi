@@ -154,13 +154,13 @@ namespace SPI_directory_service.Controllers
         }
 
         [HttpPatch("key")]
-            public async Task<IActionResult> UpdateKey([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader
-                                                    , [FromBody] ReqBPatchKey body)
-            {            
+        public async Task<IActionResult> UpdateKey([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
+                                                [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader
+                                                , [FromBody] ReqBPatchKey body)
+        {
 
             UpdateKeyRq request = new UpdateKeyRq();
             request.updateHeaders = _headersMapper.mapHeaders(apiKeyHeader, authHeader, uuidHeader, timestampsHeader, systemIdHeader);
@@ -173,7 +173,7 @@ namespace SPI_directory_service.Controllers
 
 
             try
-                {
+            {
                 _logger.LogInformation("Iniciando proceso de actualización de llave");
                 MessageInformation responseRedeban;
                 validateService.ValidateServiceUpdateKeyModel(request);
@@ -244,6 +244,6 @@ namespace SPI_directory_service.Controllers
                     timestamp = DateTime.UtcNow.ToString()
                 });
             }
-            }
         }
     }
+}

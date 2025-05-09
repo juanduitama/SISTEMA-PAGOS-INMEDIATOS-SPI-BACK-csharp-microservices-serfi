@@ -54,15 +54,11 @@ namespace SPI_Update_Service.service.update
             {
                 MessageInformation responseRedeban = new MessageInformation();
 
-                Console.WriteLine($"[INFO] Iniciando solicitud PATCH Update accouint a: {url}");
+                Console.WriteLine($"[INFO] Iniciando solicitud PATCH Update account a: {url}");
 
                 ClearHeaders();
 
                 redMapper.AddUpdateHeaders(_httpClient, headers);
-
-                // Configurar cabeceras adicionales específicas para POST
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", ConstantsEnum.APPLICATION_JSON);
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", ConstantsEnum.APPLICATION_JSON);
                 
                 string jsonContent = await UtilCommons.Object2String(requestBody);
 
@@ -121,9 +117,6 @@ namespace SPI_Update_Service.service.update
 
                 redMapper.AddUpdateHeaders(_httpClient, headers);
 
-                // Configurar cabeceras adicionales específicas para POST
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", ConstantsEnum.APPLICATION_JSON);
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", ConstantsEnum.APPLICATION_JSON);
 
                 string jsonContent = await UtilCommons.Object2String(requestBody);
 

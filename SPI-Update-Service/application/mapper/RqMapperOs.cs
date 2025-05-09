@@ -59,9 +59,9 @@ namespace application.mapper
             osNewIndexDefinitive.custInfoOS = custInfoOS;      
 
             Key key = new Key();
-            key.keyType = updateKey.reqBPatchKey.key.newKeyType;
-            key.keyId = updateKey.reqBPatchKey.key.newKeyId;
-            key.keyStatus = updateKey.reqBPatchKey.key.newKeyStatus;
+            key.keyType = updateKey.reqBPatchKey.key.newKeyType != null ? updateKey.reqBPatchKey.key.newKeyType : oldEntity.key.keyType;
+            key.keyId = updateKey.reqBPatchKey.key.newKeyId != null ? updateKey.reqBPatchKey.key.newKeyId : oldEntity.key.keyId;
+            key.keyStatus = updateKey.reqBPatchKey.key.newKeyStatus != null ?  updateKey.reqBPatchKey.key.newKeyStatus : oldEntity.key.keyStatus;
             osNewIndexDefinitive.key = key;
 
             VaultInsc vaultInsc = new VaultInsc();
@@ -148,8 +148,8 @@ namespace application.mapper
 
             AcctInfo acctInfo = new AcctInfo();
 
-            acctInfo.acctType = updateAccount.reqBPatchAccount.acctInfo.newAcctType != null ? reqBPatchAccount.acctInfo.newAcctType : osOldDefinitive.acctInfo.acctType;
-            acctInfo.acctId = updateAccount.reqBPatchAccount.acctInfo.newAcctId != null ? reqBPatchAccount.acctInfo.newAcctId : osOldDefinitive.acctInfo.acctId;
+            acctInfo.acctType = updateAccount.reqBPatchAccount.acctInfo.newAcctType != null ? updateAccount.reqBPatchAccount.acctInfo.newAcctType : oldEntity.acctInfo.acctType;
+            acctInfo.acctId = updateAccount.reqBPatchAccount.acctInfo.newAcctId != null ? updateAccount.reqBPatchAccount.acctInfo.newAcctId : oldEntity.acctInfo.acctId;
 
             osNewIndexDefinitive.acctInfo = acctInfo;
 
@@ -176,19 +176,19 @@ namespace application.mapper
             osNewIndexDefinitive.custInfoOS = custInfoOS;
 
             Key key = new Key();
-            key.keyType = updateKey.reqBPatchKey.key.newKeyType;
-            key.keyId = updateKey.reqBPatchKey.key.newKeyId;
-            key.keyStatus = updateKey.reqBPatchKey.key.newKeyStatus;
+            key.keyType = updateAccount.reqBPatchAccount.key.keyType;
+            key.keyId = updateAccount.reqBPatchAccount.key.keyId;
+            key.keyStatus = updateAccount.reqBPatchAccount.key.keyStatus != null ? updateAccount.reqBPatchAccount.key.keyStatus: oldEntity.key.keyStatus;
             osNewIndexDefinitive.key = key;
 
             VaultInsc vaultInsc = new VaultInsc();
-            vaultInsc.vaultName = updateKey.reqBPatchKey.vaultInsc.vaultName;
+            vaultInsc.vaultName = updateAccount.reqBPatchAccount.vaultInsc.vaultName;
             vaultInsc.flowService = ValidationEnums.FLOW_SERVICES_CREATE;
             vaultInsc.vaultId = oldEntity.vaultInsc.vaultId;
             osNewIndexDefinitive.vaultInsc = vaultInsc;
 
             osNewIndexDefinitive.effDtCreate = oldEntity.effDtCreate;
-            osNewIndexDefinitive.effDtModify = updateKey.reqBPatchKey.effDtKey.effDtModify;
+            osNewIndexDefinitive.effDtModify = updateAccount.reqBPatchAccount.effDtKey.effDtModify;
             return osNewIndexDefinitive;
         }
     }
