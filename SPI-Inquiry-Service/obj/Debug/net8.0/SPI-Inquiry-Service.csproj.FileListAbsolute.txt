@@ -34,3 +34,14 @@ C:\Users\Sebastian\Documents\Serfinanzas\SPI-directory-service\SPI-Inquiry-Servi
 C:\Users\Sebastian\Documents\Serfinanzas\SPI-directory-service\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.pdb
 C:\Users\Sebastian\Documents\Serfinanzas\SPI-directory-service\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.genruntimeconfig.cache
 C:\Users\Sebastian\Documents\Serfinanzas\SPI-directory-service\SPI-Inquiry-Service\obj\Debug\net8.0\ref\SPI-Inquiry-Service.dll
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.AssemblyInfo.cs
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.sourcelink.json
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.dll
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\refint\SPI-Inquiry-Service.dll
+C:\Users\Sebastian\Documents\Serfinanzas\SPI-Serfinanzas\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\SPI-Inquiry-Service\obj\Debug\net8.0\SPI-Inquiry-Service.pdb

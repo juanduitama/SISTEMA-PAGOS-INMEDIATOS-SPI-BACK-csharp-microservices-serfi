@@ -7,7 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Sebastian\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.2</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\Sebastian\.nuget\packages\" />
@@ -21,5 +21,8 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\Sebastian\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
     <PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets Condition=" '$(PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets)' == '' ">C:\Users\Sebastian\.nuget\packages\microsoft.visualstudio.azure.containers.tools.targets\1.21.0</PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets>
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\Sebastian\.nuget\packages\awssdk.core\4.0.0.3</PkgAWSSDK_Core>
+    <PkgAWSSDK_SimpleSystemsManagement Condition=" '$(PkgAWSSDK_SimpleSystemsManagement)' == '' ">C:\Users\Sebastian\.nuget\packages\awssdk.simplesystemsmanagement\4.0.1.2</PkgAWSSDK_SimpleSystemsManagement>
+    <PkgAWSSDK_SecretsManager Condition=" '$(PkgAWSSDK_SecretsManager)' == '' ">C:\Users\Sebastian\.nuget\packages\awssdk.secretsmanager\4.0.0.2</PkgAWSSDK_SecretsManager>
   </PropertyGroup>
 </Project>

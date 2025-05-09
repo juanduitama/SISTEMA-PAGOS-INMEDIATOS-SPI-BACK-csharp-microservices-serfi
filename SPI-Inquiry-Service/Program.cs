@@ -1,5 +1,5 @@
-using Services.inquiry;
-using SPI_Inquiry_Service.Services.inquiry;
+using SPI_Inquiry_Service.application.interfaces;
+using SPI_Inquiry_Service.application.Services.inquiry;
 
 var builder = WebApplication.CreateBuilder(args);
 

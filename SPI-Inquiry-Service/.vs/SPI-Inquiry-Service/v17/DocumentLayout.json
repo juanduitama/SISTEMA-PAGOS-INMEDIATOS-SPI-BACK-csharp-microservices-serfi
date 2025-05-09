@@ -1,22 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\",
+  "WorkspaceRootPath": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-inquiry-service\\services\\inquiry\\iredinquiryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:services\\inquiry\\iredinquiryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\application\\mapper\\responseserfimapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:application\\mapper\\responseserfimapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-inquiry-service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\domain\\models\\vaultinsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:domain\\models\\vaultinsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-inquiry-service\\util\\uriutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:util\\uriutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\application\\interfaces\\iredinquiryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:application\\interfaces\\iredinquiryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-directory-service\\spi-inquiry-service\\controllers\\inquirycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:controllers\\inquirycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\domain\\constants\\redheadersenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:domain\\constants\\redheadersenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\domain\\constants\\responseenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:domain\\constants\\responseenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\domain\\constants\\headersserfienum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:domain\\constants\\headersserfienum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\domain\\constants\\constantsenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:domain\\constants\\constantsenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\application\\services\\inquiry\\redinquiryserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:application\\services\\inquiry\\redinquiryserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|c:\\users\\sebastian\\documents\\serfinanzas\\spi-serfinanzas\\sistema-pagos-inmediatos-spi-back-csharp-microservices-serfi\\spi-inquiry-service\\application\\controllers\\inquirycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48071F08-210B-411E-8DF9-6B324E1D971C}|SPI-Inquiry-Service.csproj|solutionrelative:application\\controllers\\inquirycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +46,127 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IRedInquiryService.cs",
-              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Services\\inquiry\\IRedInquiryService.cs",
-              "RelativeDocumentMoniker": "Services\\inquiry\\IRedInquiryService.cs",
-              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Services\\inquiry\\IRedInquiryService.cs",
-              "RelativeToolTip": "Services\\inquiry\\IRedInquiryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "InquiryController.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\Controllers\\InquiryController.cs",
+              "RelativeDocumentMoniker": "application\\Controllers\\InquiryController.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\Controllers\\InquiryController.cs",
+              "RelativeToolTip": "application\\Controllers\\InquiryController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAAFMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:38:11.576Z",
+              "OverriddenGroupName": "application\\Controllers",
+              "WhenOpened": "2025-05-06T14:25:50.227Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UriUtil.cs",
-              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Util\\UriUtil.cs",
-              "RelativeDocumentMoniker": "Util\\UriUtil.cs",
-              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Util\\UriUtil.cs",
-              "RelativeToolTip": "Util\\UriUtil.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ResponseSerfiMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\mapper\\ResponseSerfiMapper.cs",
+              "RelativeDocumentMoniker": "application\\mapper\\ResponseSerfiMapper.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\mapper\\ResponseSerfiMapper.cs",
+              "RelativeToolTip": "application\\mapper\\ResponseSerfiMapper.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwEkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:27:03.329Z",
+              "OverriddenGroupName": "application\\mapper",
+              "WhenOpened": "2025-05-09T20:26:16.598Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAArAAAAAAAAAA==",
+              "Title": "VaultInsc.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\models\\VaultInsc.cs",
+              "RelativeDocumentMoniker": "domain\\models\\VaultInsc.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\models\\VaultInsc.cs",
+              "RelativeToolTip": "domain\\models\\VaultInsc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:25:54.425Z",
+              "WhenOpened": "2025-05-09T20:46:21.656Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "InquiryController.cs",
-              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Controllers\\InquiryController.cs",
-              "RelativeDocumentMoniker": "Controllers\\InquiryController.cs",
-              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-directory-service\\SPI-Inquiry-Service\\Controllers\\InquiryController.cs",
-              "RelativeToolTip": "Controllers\\InquiryController.cs",
+              "Title": "RedHeadersEnum.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\RedHeadersEnum.cs",
+              "RelativeDocumentMoniker": "domain\\constants\\RedHeadersEnum.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\RedHeadersEnum.cs",
+              "RelativeToolTip": "domain\\constants\\RedHeadersEnum.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T20:45:06.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ResponseEnum.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\ResponseEnum.cs",
+              "RelativeDocumentMoniker": "domain\\constants\\ResponseEnum.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\ResponseEnum.cs",
+              "RelativeToolTip": "domain\\constants\\ResponseEnum.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T14:25:50.227Z",
+              "WhenOpened": "2025-05-09T20:45:05.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HeadersSerfiEnum.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\HeadersSerfiEnum.cs",
+              "RelativeDocumentMoniker": "domain\\constants\\HeadersSerfiEnum.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\HeadersSerfiEnum.cs",
+              "RelativeToolTip": "domain\\constants\\HeadersSerfiEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T20:45:01.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConstantsEnum.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\ConstantsEnum.cs",
+              "RelativeDocumentMoniker": "domain\\constants\\ConstantsEnum.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\domain\\constants\\ConstantsEnum.cs",
+              "RelativeToolTip": "domain\\constants\\ConstantsEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T20:45:00.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RedInquiryServiceImpl.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\Services\\inquiry\\RedInquiryServiceImpl.cs",
+              "RelativeDocumentMoniker": "application\\Services\\inquiry\\RedInquiryServiceImpl.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\Services\\inquiry\\RedInquiryServiceImpl.cs",
+              "RelativeToolTip": "application\\Services\\inquiry\\RedInquiryServiceImpl.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowEsAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T20:19:44.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IRedInquiryService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\interfaces\\IRedInquiryService.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\IRedInquiryService.cs",
+              "ToolTip": "C:\\Users\\Sebastian\\Documents\\Serfinanzas\\SPI-Serfinanzas\\SISTEMA-PAGOS-INMEDIATOS-SPI-BACK-csharp-microservices-serfi\\SPI-Inquiry-Service\\application\\interfaces\\IRedInquiryService.cs",
+              "RelativeToolTip": "application\\interfaces\\IRedInquiryService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwCIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T20:19:36.995Z",
               "EditorCaption": ""
             }
           ]

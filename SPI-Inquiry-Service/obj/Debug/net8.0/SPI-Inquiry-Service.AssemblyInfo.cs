@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPI-Inquiry-Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6451e173ceaa956d5fc0d659bb182027bab7252c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPI-Inquiry-Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPI-Inquiry-Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
