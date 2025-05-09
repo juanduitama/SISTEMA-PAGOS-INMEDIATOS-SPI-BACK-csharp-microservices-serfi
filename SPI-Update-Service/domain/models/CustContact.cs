@@ -8,7 +8,6 @@ namespace domain.models
         [JsonPropertyName("custMobileNumber")]
         public string? custMobileNumber { get; set; }
 
-        [Required]
         [JsonPropertyName("custEmail")]
         public string custEmail { get; set; }
 

@@ -11,15 +11,13 @@ namespace domain.models
     public class CustInfo
     {
 
-        [Required]
         [JsonPropertyName("custType")]
         public string custType { get; set; }
 
-        [Required]
         [JsonPropertyName("custIdent")]
         public CustIdent custIdent {  get; set; }
 
-        [Required]
+
         [JsonPropertyName("custContact")]
         public CustContact custContact { get; set; }
 

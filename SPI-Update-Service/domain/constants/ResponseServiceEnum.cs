@@ -16,7 +16,7 @@ namespace domain.constants
         /// Constante de error en caso de que se presente un fallo al intentar operación sobre DynamoDB.
         /// </summary>
         NOT_FOUND_KEY,
-        CONNECTION_OS,
+        CONNECTION_OS,        
         INVALID_ACCTYPE,
         INVALID_ACCTID,
         INVALID_OLD_ACCTYPE,
@@ -48,7 +48,10 @@ namespace domain.constants
         INVALID_VAULT_NAME,
         DIFFERENT_ID,
         DIFFERENT_TYPE,
-
+        SERVICE_KEY_ERROR,
+        SERVICE_ACCOUNT_ERROR,
+        BAD_REQUEST_JSON,
+        SERVICE_INTERNAL_ERROR
         
 
     }
@@ -98,6 +101,10 @@ namespace domain.constants
                 ResponseServiceEnum.INVALID_VAULT_NAME => "400",
                 ResponseServiceEnum.DIFFERENT_ID => "400",
                 ResponseServiceEnum.DIFFERENT_TYPE => "400",
+                ResponseServiceEnum.SERVICE_KEY_ERROR=>"400",
+                ResponseServiceEnum.SERVICE_ACCOUNT_ERROR => "400",
+                ResponseServiceEnum.BAD_REQUEST_JSON => "400",
+                ResponseServiceEnum.SERVICE_INTERNAL_ERROR => "500",
                 _ => throw new ArgumentOutOfRangeException(nameof(responseService))
             };
         }
@@ -142,6 +149,10 @@ namespace domain.constants
                 ResponseServiceEnum.INVALID_VAULT_NAME => "[vaultInsc.vaultName] no cumple con los valores del vault name.",
                 ResponseServiceEnum.DIFFERENT_ID => "El número de identificación es diferente al que se encuentra regsitrado",
                 ResponseServiceEnum.DIFFERENT_TYPE => "El tipo de documento es difernete al que se encuentra registrado",
+                ResponseServiceEnum.SERVICE_KEY_ERROR => "No se pudo modificar llave.",
+                ResponseServiceEnum.SERVICE_ACCOUNT_ERROR => "No se pudo modificar el producto.",
+                ResponseServiceEnum.BAD_REQUEST_JSON => "Bad request JSON",
+                ResponseServiceEnum.SERVICE_INTERNAL_ERROR => "Error interno del servidor",
                 _ => throw new ArgumentOutOfRangeException(nameof(responseService))
             };
         }
@@ -185,6 +196,10 @@ namespace domain.constants
                 ResponseServiceEnum.INVALID_NEW_KEY_STATUS => 400,
                 ResponseServiceEnum.DIFFERENT_ID => 400,
                 ResponseServiceEnum.DIFFERENT_TYPE => 400,
+                ResponseServiceEnum.SERVICE_KEY_ERROR => 400,
+                ResponseServiceEnum.SERVICE_ACCOUNT_ERROR => 400,
+                ResponseServiceEnum.BAD_REQUEST_JSON => 400,
+                ResponseServiceEnum.SERVICE_INTERNAL_ERROR => 500,
                 _ => throw new ArgumentOutOfRangeException(nameof(responseService))
             };
         }

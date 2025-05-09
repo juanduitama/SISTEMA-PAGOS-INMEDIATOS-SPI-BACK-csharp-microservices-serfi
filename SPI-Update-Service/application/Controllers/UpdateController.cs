@@ -16,6 +16,7 @@ using SPI_Update_Service.domain.models.redeban;
 using domain.models.openSearchModel;
 using application.interfaces;
 using domain.models.redeban.response;
+using System.ComponentModel.DataAnnotations;
 
 namespace SPI_directory_service.Controllers
 {
@@ -31,6 +32,7 @@ namespace SPI_directory_service.Controllers
         private readonly RedRqMapper _redRqMapper = new RedRqMapper();
         private readonly IOpenSearchService _openSearchService = new OpenSearchService();
         private readonly RqMapperOs _rqMapperOs = new RqMapperOs();
+        private readonly ResponseSerfiMapper _rsSerfiMapper = new ResponseSerfiMapper();
 
         public UpdateController(
             IRedUpdateService updateService,
@@ -42,12 +44,12 @@ namespace SPI_directory_service.Controllers
         }
 
         [HttpPatch("account")]
-        public async Task<IActionResult> UpdateAccount([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
-                                                    [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader
-                                                    , [FromBody] ReqBPatchAccount body)
+        public async Task<IActionResult> UpdateAccount([Required][FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
+                                                       [Required][FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
+                                                       [Required][FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
+                                                       [Required][FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
+                                                       [Required][FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader,
+                                                       [FromBody] ReqBPatchAccount body)
         {
 
             //validate request
@@ -109,7 +111,7 @@ namespace SPI_directory_service.Controllers
                 {
                     _logger.LogError($"No se pudo modificar el producto: " + response.ToString());
                     //Fata exception
-                    throw new Exception();
+                    throw new SerfiException(ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getMessage(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getHttpCode());
                 }
 
                 _logger.LogInformation("Iniciando proceso de guardado en open search.");
@@ -123,7 +125,7 @@ namespace SPI_directory_service.Controllers
                 _logger.LogInformation("Se modificó en open search correctamente.");
 
 
-                MsgInformationResponseSerfi responseService = _rqMapperOs.mapMessageResponseAccount(entityToSave, request, response);
+                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseAccount(entityToSave, request, response);
 
                 _logger.LogInformation("Finalizo el proceso");
 
@@ -134,32 +136,24 @@ namespace SPI_directory_service.Controllers
             {
                 _logger.LogError($"Error al procesar JSON: {ex.Message}");
 
-                return BadRequest(new
-                {
-                    error = "Formato JSON inválido",
-                    message = ex.Message
-                });
+                throw new SerfiException(ResponseServiceEnum.BAD_REQUEST_JSON.getErrorCode(), ResponseServiceEnum.BAD_REQUEST_JSON.getMessage(), ResponseServiceEnum.BAD_REQUEST_JSON.getHttpCode());
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error en la actualización de cuenta: {ex.Message}");
 
-                return StatusCode(500, new
-                {
-                    error = "Error interno del servidor",
-                    message = ex.Message,
-                    timestamp = DateTime.UtcNow.ToString()
-                });
+
+                throw new SerfiException(ResponseServiceEnum.SERVICE_INTERNAL_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_INTERNAL_ERROR.getMessage(), ResponseServiceEnum.SERVICE_INTERNAL_ERROR.getHttpCode());
             }
         }
 
         [HttpPatch("key")]
         public async Task<IActionResult> UpdateKey([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
-                                                [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader
-                                                , [FromBody] ReqBPatchKey body)
+                                                   [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
+                                                   [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
+                                                   [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
+                                                   [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader,
+                                                   [FromBody] ReqBPatchKey body)
         {
 
             UpdateKeyRq request = new UpdateKeyRq();
@@ -204,7 +198,7 @@ namespace SPI_directory_service.Controllers
                 else
                 {
                     _logger.LogError($"No se pudo modificar la llave: " + response.ToString());
-                    throw new Exception();
+                    throw new SerfiException(ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getMessage(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getHttpCode());
                 }
 
                 _logger.LogInformation("Iniciando proceso de guardado en open search.");
@@ -217,7 +211,7 @@ namespace SPI_directory_service.Controllers
                 _logger.LogInformation("Se modificó en open search correctamente.");
 
 
-                MsgInformationResponseSerfi responseService = _rqMapperOs.mapMessageResponse(entityToSave, request, response);
+                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseKey(entityToSave, request, response);
 
                 _logger.LogInformation("Finalizo el proceso");
 
@@ -227,23 +221,9 @@ namespace SPI_directory_service.Controllers
             {
                 _logger.LogError($"Error al procesar JSON: {ex.Message}");
 
-                return BadRequest(new
-                {
-                    error = "Formato JSON inválido",
-                    message = ex.Message
-                });
+                throw new SerfiException(ResponseServiceEnum.BAD_REQUEST_JSON.getErrorCode(), ResponseServiceEnum.BAD_REQUEST_JSON.getMessage(), ResponseServiceEnum.BAD_REQUEST_JSON.getHttpCode());
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error en la actualización de llave: {ex.Message}");
 
-                return StatusCode(500, new
-                {
-                    error = "Error interno del servidor",
-                    message = ex.Message,
-                    timestamp = DateTime.UtcNow.ToString()
-                });
-            }
         }
     }
 }

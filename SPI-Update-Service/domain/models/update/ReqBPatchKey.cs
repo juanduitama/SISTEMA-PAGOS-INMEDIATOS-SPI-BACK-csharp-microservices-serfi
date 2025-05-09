@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.ComponentModel.DataAnnotations;
+using SPI_Update_Service.domain.models.update;
 
 namespace domain.models
 {
@@ -14,20 +15,16 @@ namespace domain.models
     /// </summary>
     public class ReqBPatchKey
     {
-        [Required]
+        
         [JsonPropertyName("custInfo")]
-        public CustInfo custInfo {get; set;}
+        public CustInfoRq custInfo {get; set;}
 
-        [Required]
         [JsonPropertyName("key")]
         public Key key { get; set; }
 
-
-        [Required]
         [JsonPropertyName("vaultInsc")]
-        public VaultInsc vaultInsc {get; set;}
+        public VaultInscRq vaultInsc {get; set;}
 
-        [Required]
         [JsonPropertyName("effDtKey")]
         public EffDtKey effDtKey { get; set; }
     }

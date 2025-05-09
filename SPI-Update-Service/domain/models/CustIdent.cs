@@ -10,11 +10,9 @@ namespace domain.models
 {
     public class CustIdent
     {
-        [Required]
         [JsonPropertyName("custIdentType")]
         public string custIdentType { get; set; }
 
-        [Required]
         [JsonPropertyName("custIdentId")]
         public string custIdentId { get; set; }
 

@@ -2,6 +2,7 @@
 using domain.models;
 using domain.models.enrollment;
 using domain.models.openSearchModel;
+using SPI_Update_Service.domain.models.update;
 using System.Text.RegularExpressions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -177,6 +178,19 @@ namespace application.Services
         }
 
 
+        public bool validateCustType(CustInfoRq custInfo)
+        {
+            if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PN))
+            {
+                return false;
+
+            }
+            else if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PJ))
+            {
+                return false;
+            }
+            return true;
+        }
         public bool validateCustType(CustInfo custInfo)
         {
             if (custInfo.custType.Equals(ValidationEnums.CUST_INFO_LEGAL_NAME_PN))

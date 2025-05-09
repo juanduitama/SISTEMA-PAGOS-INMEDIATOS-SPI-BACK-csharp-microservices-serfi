@@ -4,28 +4,76 @@ using domain.constants;
 using domain.models;
 using domain.models.enrollment;
 using domain.models.redeban.response;
+using domain.models.openSearchModel;
 
 namespace application.mapper
 {
     public class ResponseSerfiMapper
     {
-        public MsgInformationResponseSerfi responseSuccess(EnrollmentRq request, MessageInformation responseRedeban){
-            MsgInformationResponseSerfi response = new MsgInformationResponseSerfi();
+        public MsgInformationResponseSerfi mapMessageResponseAccount(OSDefinitive osIndexDefinitive, UpdateAccountRq updateKey, MessageInformation messageInformation)
+        {
+            MsgInformationResponseSerfi msgInformationResponseSerfi = new MsgInformationResponseSerfi();
+            Meta meta = new Meta();
+            meta.uuid = updateKey.updateHeaders.uuId;
+            meta.timeStamp = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
+            meta.systemId = "";
+            msgInformationResponseSerfi.meta = meta;
 
-            response.meta.uuid = request.enrollmenAccountHeaders.uuId;
-            response.meta.timeStamp = request.enrollmenAccountHeaders.timeStamps;
-            response.meta.systemId = request.enrollmenAccountHeaders.systemId;
-            response.statusCodigo = ResponseEnun.ENRROLLMENT_RESPONSE_CODE_SUCCESS;
-            response.statusDesc = ResponseEnun.ENRROLLMENT_RESPONSE_DESC_SUCCESS;
+            msgInformationResponseSerfi.statusCodigo = messageInformation.msgCode;
+            msgInformationResponseSerfi.statusDesc = messageInformation.msgDescription;
 
-            AditionalInfo aditionalInfo = new AditionalInfo();
-            aditionalInfo.codigo = responseRedeban.msgCode;
-            aditionalInfo.detalle = responseRedeban.msgDescription;
+            AditionalInfo aditionalInfoItem = new AditionalInfo();
+            aditionalInfoItem.codigo = "";
+            aditionalInfoItem.detalle = "";
 
-            response.aditionalInfo.Add(aditionalInfo);
 
-            return response;
+            List<AditionalInfo> aditionalInfoList = new List<AditionalInfo>();
+            aditionalInfoList.Add(aditionalInfoItem);
+
+            msgInformationResponseSerfi.aditionalInfo = aditionalInfoList;
+
+
+            Data data = new Data();
+            //No siempre se llena este merchantId
+            data.merchantId = "";
+            msgInformationResponseSerfi.data = data;
+
+
+            return msgInformationResponseSerfi;
+        }
+
+        public MsgInformationResponseSerfi mapMessageResponseKey(OSDefinitive osIndexDefinitive, UpdateKeyRq updateKey, MessageInformation messageInformation)
+        {
+            MsgInformationResponseSerfi msgInformationResponseSerfi = new MsgInformationResponseSerfi();
+            Meta meta = new Meta();
+            meta.uuid = updateKey.updateHeaders.uuId;
+            meta.timeStamp = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
+            meta.systemId = "";
+            msgInformationResponseSerfi.meta = meta;
+
+            msgInformationResponseSerfi.statusCodigo = messageInformation.msgCode;
+            msgInformationResponseSerfi.statusDesc = messageInformation.msgDescription;
+
+            AditionalInfo aditionalInfoItem = new AditionalInfo();
+            aditionalInfoItem.codigo = "";
+            aditionalInfoItem.detalle = "";
+
+
+            List<AditionalInfo> aditionalInfoList = new List<AditionalInfo>();
+            aditionalInfoList.Add(aditionalInfoItem);
+
+            msgInformationResponseSerfi.aditionalInfo = aditionalInfoList;
+
+
+            Data data = new Data();
+            //No siempre se llena este merchantId
+            data.merchantId = "";
+            msgInformationResponseSerfi.data = data;
+
+
+            return msgInformationResponseSerfi;
         }
     }
+
 
 }

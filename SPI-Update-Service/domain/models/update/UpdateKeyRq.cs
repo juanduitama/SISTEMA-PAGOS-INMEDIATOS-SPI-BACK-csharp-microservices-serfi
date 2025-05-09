@@ -7,7 +7,6 @@ namespace domain.models.enrollment
     {
         
         public UpdateHeaders updateHeaders { get; set; }
-        [Required]
         public ReqBPatchKey reqBPatchKey { get; set; }
 
     }
