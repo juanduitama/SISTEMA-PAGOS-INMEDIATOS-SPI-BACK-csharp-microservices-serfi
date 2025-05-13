@@ -199,6 +199,7 @@ namespace domain.constants
                 ResponseServiceEnum.SERVICE_KEY_ERROR => 400,
                 ResponseServiceEnum.SERVICE_ACCOUNT_ERROR => 400,
                 ResponseServiceEnum.BAD_REQUEST_JSON => 400,
+                ResponseServiceEnum.INVALID_KEY_ID => 400,
                 ResponseServiceEnum.SERVICE_INTERNAL_ERROR => 500,
                 _ => throw new ArgumentOutOfRangeException(nameof(responseService))
             };

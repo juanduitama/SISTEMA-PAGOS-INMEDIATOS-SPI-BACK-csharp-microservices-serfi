@@ -11,6 +11,9 @@ using domain.constants;
 using application.mapper;
 using domain.models.redeban.response;
 using application.util;
+using domain.models.oAuth;
+using application.interfaces;
+using application.Services;
 
 namespace SPI_Update_Service.service.update
 {
@@ -28,6 +31,8 @@ namespace SPI_Update_Service.service.update
 
         private readonly JsonSerializerOptions _jsonOptions;
         private readonly RedRqMapper redMapper;
+
+        private readonly IOauthServices _oauthService = new OAuthService();
 
         /// <summary>
         /// Constructor estático que inicializa los recursos compartidos.
@@ -106,36 +111,41 @@ namespace SPI_Update_Service.service.update
 
             throw new NotImplementedException();
         }
-        public async Task<MessageInformation> UpdateAccountAsync(string url, HeadersRq headers, UpdateAcctRq requestBody)
+        public async Task<MsgInformationResponse> UpdateAccountAsync(string url, HeadersRq headers, UpdateAcctRq requestBody)
         {
             try
             {
-                MessageInformation responseRedeban = new MessageInformation();
-                Console.WriteLine($"[INFO] Iniciando solicitud PATCH Update account a: {url}");
+
+                MsgInformationResponse responseRedeban = new MsgInformationResponse();
 
                 ClearHeaders();
 
-                redMapper.AddUpdateHeaders(_httpClient, headers);
+                RsOAuth responseOauth = await _oauthService.getToken(ConstantsEnum.BASE_URI_OAUTH, _httpClient);
 
+                Console.WriteLine("Token obtenido Oauth: " + responseOauth.accessToken);
+
+                Console.WriteLine($"[INFO] Iniciando solicitud PATCH Update account a: {url}");
+                ClearHeaders();
+
+                redMapper.AddUpdateHeaders(_httpClient, headers, responseOauth.accessToken);
 
                 string jsonContent = await UtilCommons.Object2String(requestBody);
 
-                Console.WriteLine($"[DEBUG] JSON a enviar: {jsonContent}");
+                Console.WriteLine($"[DEBUG] body a enviar: {jsonContent}");
 
                 var content = new StringContent(jsonContent, Encoding.UTF8, ConstantsEnum.APPLICATION_JSON);
 
+                string contentBody = await content.ReadAsStringAsync();
+
                 Console.WriteLine("[INFO] Enviando solicitud PATCH...");
+
                 HttpResponseMessage response = await _httpClient.PatchAsync(url, content);
 
-                Console.WriteLine($"[INFO] Respuesta recibida con código: {response.StatusCode}");
+                string responseRes = await response.Content.ReadAsStringAsync();
 
-                string responseContent = await response.Content.ReadAsStringAsync();
+                responseRedeban = await UtilCommons.String2Object<MsgInformationResponse>(responseRes);
 
-                Console.WriteLine($"[WARN] Respuesta de error: {responseContent}");
-
-                responseRedeban = await UtilCommons.String2Object<MessageInformation>(responseContent);
-
-                Console.WriteLine($"[RES] Respuesta: {responseRedeban.ToString()}");
+                Console.WriteLine($"[RES] Respuesta: {responseRes}");
 
                 return responseRedeban;
             }

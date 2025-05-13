@@ -17,6 +17,7 @@ namespace domain.constants
     {
         public const string PATCH_HTTP_METHOD = "PATCH";
         public const string APPLICATION_JSON = "application/json";
+        public const string APPLICATION_URL_ENCODE = "application/x-www-form-urlencoded";
         public const string TYPE_PERSON = "PERSON";
         public const string ORIGIN = "origin";
         public const string TYPE_COMMERCE = "COMMERCE";
@@ -33,8 +34,15 @@ namespace domain.constants
         public const int TYPE_KEY_ID = 0;
         public const int TYPE_OLD_KEY_ID = 1;
         public const int TYPE_NEW_KEY_ID = 2;
+        public const string IBM_CLIENT_ID = "54cfb091cdd1c1f30f9cb3423a28aebe";
+        public const string IBM_Client_Secret = "c92296aaeeb1965330c077e1a8f73889";
+        public const string BEARER = "Bearer";
+
+        public const string SCOPES = "HUB";
+        public const string GRANTYPE = "client_credentials";
 
 
+        public const string BASE_URI_OAUTH = "https://gateway.qa.sandboxhubredeban.com/rbmcalidad/calidad/oauth2.0/oauth2/token";
         public const string BASE_URI = "https://10.130.1.74:5067/FederateDirectoryIntegrationRBM_SPI/rbmcalidad/calidad/api/dir/v3.0.0/Directory/";
 
     }

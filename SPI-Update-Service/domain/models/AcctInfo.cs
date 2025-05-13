@@ -22,7 +22,6 @@ namespace domain.models
         [JsonPropertyName("acctId")]
         public string acctId { get; set; }
 
-
         /// <summary>
         /// Tipo de cuenta
         /// </summary>
@@ -40,10 +39,18 @@ namespace domain.models
         [JsonPropertyName("newAcctType")]
         public string newAcctType { get; set; }
 
+
         /// <summary>
         /// Identificador de la cuenta
         /// </summary>
         [JsonPropertyName("newAcctId")]
         public string newAcctId { get; set; }
+
+
+        /// <summary>
+        /// Identificador de la cuenta
+        /// </summary>
+        [JsonPropertyName("ageAccount")]
+        public string ageAccount { get; set; }
     }
 }

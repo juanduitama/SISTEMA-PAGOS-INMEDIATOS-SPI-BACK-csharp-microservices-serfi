@@ -34,7 +34,6 @@
   <ItemGroup>
     <Folder Include="application\controllers\" />
     <Folder Include="application\interfaces\" />
-    <Folder Include="application\services\" />
     <Folder Include="application\util\" />
     <Folder Include="application\mapper\" />
     <Folder Include="domain\constants\" />

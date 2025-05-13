@@ -15,13 +15,5 @@ namespace domain.models
         [JsonPropertyName("custType")]
         public string custType { get; set; }
 
-        [JsonPropertyName("custIdent")]
-        public CustIdent custIdent {  get; set; }
-
-
-        [ValidateNever]
-        [JsonPropertyName("custContact")]
-        public CustContact custContact { get; set; }
-
     }
 }

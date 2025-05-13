@@ -17,16 +17,16 @@ namespace application.Services
                 throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_PERSON.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_PERSON.getMessage() , ResponseServiceEnum.INVALID_TYPE_PERSON.getHttpCode());
             }
             // Valida custIdentType
-            else if (!validateIdentType(updateKey.reqBPatchKey.custInfo.custIdent.custIdentType))
-            {
-                throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_ID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_ID.getMessage() , ResponseServiceEnum.INVALID_TYPE_ID.getHttpCode());
-            }
+            //else if (!validateIdentType(updateKey.reqBPatchKey.custInfo.custIdent.custIdentType))
+            //{
+            //    throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_ID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_ID.getMessage() , ResponseServiceEnum.INVALID_TYPE_ID.getHttpCode());
+            //}
             // Valida custIdent Id
-            else if (!validateRegex(updateKey.reqBPatchKey.custInfo.custIdent.custIdentId,ValidationEnums.IDENT_ID)
-                    && !validateSize(updateKey.reqBPatchKey.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID_SIZE))
-            {
-                throw new SerfiException(ResponseServiceEnum.INVALID_ID.getErrorCode(), ResponseServiceEnum.INVALID_ID.getMessage(), ResponseServiceEnum.INVALID_ID.getHttpCode());
-            }
+            //else if (!validateRegex(updateKey.reqBPatchKey.custInfo.custIdent.custIdentId,ValidationEnums.IDENT_ID)
+            //        && !validateSize(updateKey.reqBPatchKey.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID_SIZE))
+            //{
+            //    throw new SerfiException(ResponseServiceEnum.INVALID_ID.getErrorCode(), ResponseServiceEnum.INVALID_ID.getMessage(), ResponseServiceEnum.INVALID_ID.getHttpCode());
+            //}
             // Valida oldKey
             else if (!validateKeyType(updateKey.reqBPatchKey.key.oldKeyType, updateKey.reqBPatchKey.key.oldKeyId, ConstantsEnum.TYPE_OLD_KEY_ID))
             {
@@ -75,14 +75,13 @@ namespace application.Services
             {
                 throw new SerfiException(ResponseServiceEnum.INVALID_ACCTID.getErrorCode(), ResponseServiceEnum.INVALID_ACCTID.getMessage(), ResponseServiceEnum.INVALID_ACCTYPE.getHttpCode());
             }
-
             //Validaciones newAcctType
-            if (!validateAccountType(updateAccount.reqBPatchAccount.acctInfo.newAcctType))
+            else if (!(string.IsNullOrWhiteSpace(updateAccount.reqBPatchAccount.acctInfo.newAcctType)) && !validateAccountType(updateAccount.reqBPatchAccount.acctInfo.newAcctType))
             {
                 throw new SerfiException(ResponseServiceEnum.INVALID_NEW_ACCTYPE.getErrorCode(), ResponseServiceEnum.INVALID_NEW_ACCTYPE.getMessage() , ResponseServiceEnum.INVALID_NEW_ACCTYPE.getHttpCode());
             }
             //Validaciones newAcctId
-            else if (!validateRegex(updateAccount.reqBPatchAccount.acctInfo.newAcctId, ValidationEnums.ACCOUNT_ID))
+            else if (!(string.IsNullOrWhiteSpace(updateAccount.reqBPatchAccount.acctInfo.newAcctId)) && !validateRegex(updateAccount.reqBPatchAccount.acctInfo.newAcctId, ValidationEnums.ACCOUNT_ID))
             {
                 throw new SerfiException(ResponseServiceEnum.INVALID_NEW_ACCTID.getErrorCode(), ResponseServiceEnum.INVALID_NEW_ACCTID.getMessage(), ResponseServiceEnum.INVALID_NEW_ACCTID.getHttpCode());
             }
@@ -93,16 +92,16 @@ namespace application.Services
                 throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_PERSON.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_PERSON.getMessage(), ResponseServiceEnum.INVALID_TYPE_PERSON.getHttpCode());
             }
              //Validaciones objeto CustIdent
-            else if (!validateIdentType(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentType))
-            {
-                throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_ID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_ID.getMessage(), ResponseServiceEnum.INVALID_TYPE_ID.getHttpCode());
-            }
+            //else if (!validateIdentType(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentType))
+            //{
+            //    throw new SerfiException(ResponseServiceEnum.INVALID_TYPE_ID.getErrorCode(), ResponseServiceEnum.INVALID_TYPE_ID.getMessage(), ResponseServiceEnum.INVALID_TYPE_ID.getHttpCode());
+            //}
             // Validaciones custIdent
-            else if (!validateRegex(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID)
-                    && !validateSize(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID_SIZE))
-            {
-                throw new SerfiException(ResponseServiceEnum.INVALID_ID.getErrorCode(), ResponseServiceEnum.INVALID_ID.getMessage(), ResponseServiceEnum.INVALID_ID.getHttpCode());
-            }
+            //else if (!validateRegex(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID)
+            //        && !validateSize(updateAccount.reqBPatchAccount.custInfo.custIdent.custIdentId, ValidationEnums.IDENT_ID_SIZE))
+            //{
+            //    throw new SerfiException(ResponseServiceEnum.INVALID_ID.getErrorCode(), ResponseServiceEnum.INVALID_ID.getMessage(), ResponseServiceEnum.INVALID_ID.getHttpCode());
+            //}
             //Validaciones keyType y KeyId
             else if (!validateKeyType(updateAccount.reqBPatchAccount.key.keyType, updateAccount.reqBPatchAccount.key.keyId, ConstantsEnum.TYPE_KEY_ID))
             {
@@ -327,34 +326,35 @@ namespace application.Services
             return status.ToUpper().Equals(ValidationEnums.KEY_ACTIVE_STATUS) ? true : false;
         }
 
-        public bool validateSameId(UpdateKeyRq request, OSDefinitive entity){
-            return request.reqBPatchKey.custInfo.custIdent.custIdentId.Equals(entity.custInfoOS.custIdent.custIdentId) ? true : false;
-        }
+        //public bool validateSameId(UpdateKeyRq request, OSDefinitive entity){
+        //    return request.reqBPatchKey.custInfo.custIdent.custIdentId.Equals(entity.custInfoOS.custIdent.custIdentId) ? true : false;
+        //}
 
-        public bool validateSameId(UpdateAccountRq request, OSDefinitive entity)
-        {
-            return request.reqBPatchAccount.custInfo.custIdent.custIdentId.Equals(entity.custInfoOS.custIdent.custIdentId) ? true : false;
-        }
+        //public bool validateSameId(UpdateAccountRq request, OSDefinitive entity)
+        //{
+        //    return request.reqBPatchAccount.custInfo.custIdent.custIdentId.Equals(entity.custInfoOS.custIdent.custIdentId) ? true : false;
+        //}
 
-        public bool validateSameIdType(UpdateKeyRq request, OSDefinitive entity){
-            return request.reqBPatchKey.custInfo.custIdent.custIdentType.Equals(entity.custInfoOS.custIdent.custIdentType) ? true : false;
-        }
+        //public bool validateSameIdType(UpdateKeyRq request, OSDefinitive entity){
+        //    return request.reqBPatchKey.custInfo.custIdent.custIdentType.Equals(entity.custInfoOS.custIdent.custIdentType) ? true : false;
+        //}
 
-        public bool validateSameIdType(UpdateAccountRq request, OSDefinitive entity)
-        {
-            return request.reqBPatchAccount.custInfo.custIdent.custIdentType.Equals(entity.custInfoOS.custIdent.custIdentType) ? true : false;
-        }
+        //public bool validateSameIdType(UpdateAccountRq request, OSDefinitive entity)
+        //{
+        //    return request.reqBPatchAccount.custInfo.custIdent.custIdentType.Equals(entity.custInfoOS.custIdent.custIdentType) ? true : false;
+        //}
 
         public void validateOSEntity(UpdateKeyRq request, OSDefinitive opSearchEntity){
             if (opSearchEntity == null){
                     throw new SerfiException(ResponseServiceEnum.NOT_FOUND_KEY.getErrorCode(), ResponseServiceEnum.NOT_FOUND_KEY.getMessage(), ResponseServiceEnum.NOT_FOUND_KEY.getHttpCode());
                 }else if(!validateOldStatus(opSearchEntity.key.oldKeyStatus)){
                     throw new SerfiException(ResponseServiceEnum.INVALID_KEY_STATUS.getErrorCode(), ResponseServiceEnum.INVALID_KEY_STATUS.getMessage(), ResponseServiceEnum.INVALID_KEY_STATUS.getHttpCode());
-                }else if (!validateSameId(request,opSearchEntity)){
-                    throw new SerfiException(ResponseServiceEnum.DIFFERENT_ID.getErrorCode(), ResponseServiceEnum.DIFFERENT_ID.getMessage(), ResponseServiceEnum.DIFFERENT_ID.getHttpCode());
-                }else if(!validateSameIdType(request,opSearchEntity)){
-                    throw new SerfiException(ResponseServiceEnum.DIFFERENT_TYPE.getErrorCode(), ResponseServiceEnum.DIFFERENT_TYPE.getMessage(), ResponseServiceEnum.DIFFERENT_TYPE.getHttpCode());
-                }
+            }
+            //else if (!validateSameId(request,opSearchEntity)){
+            //    throw new SerfiException(ResponseServiceEnum.DIFFERENT_ID.getErrorCode(), ResponseServiceEnum.DIFFERENT_ID.getMessage(), ResponseServiceEnum.DIFFERENT_ID.getHttpCode());
+            //}else if(!validateSameIdType(request,opSearchEntity)){
+            //    throw new SerfiException(ResponseServiceEnum.DIFFERENT_TYPE.getErrorCode(), ResponseServiceEnum.DIFFERENT_TYPE.getMessage(), ResponseServiceEnum.DIFFERENT_TYPE.getHttpCode());
+            //}
         }
 
         public void validateOSEntityAccount(UpdateAccountRq request, OSDefinitive opSearchEntity)
@@ -367,14 +367,14 @@ namespace application.Services
             {
                 throw new SerfiException(ResponseServiceEnum.INVALID_KEY_STATUS.getErrorCode(), ResponseServiceEnum.INVALID_KEY_STATUS.getMessage(), ResponseServiceEnum.INVALID_KEY_STATUS.getHttpCode());
             }
-            else if (!validateSameId(request, opSearchEntity))
-            {
-                throw new SerfiException(ResponseServiceEnum.DIFFERENT_ID.getErrorCode(), ResponseServiceEnum.DIFFERENT_ID.getMessage(), ResponseServiceEnum.DIFFERENT_ID.getHttpCode());
-            }
-            else if (!validateSameIdType(request, opSearchEntity))
-            {
-                throw new SerfiException(ResponseServiceEnum.DIFFERENT_TYPE.getErrorCode(), ResponseServiceEnum.DIFFERENT_TYPE.getMessage(), ResponseServiceEnum.DIFFERENT_TYPE.getHttpCode());
-            }
+            //else if (!validateSameId(request, opSearchEntity))
+            //{
+            //    throw new SerfiException(ResponseServiceEnum.DIFFERENT_ID.getErrorCode(), ResponseServiceEnum.DIFFERENT_ID.getMessage(), ResponseServiceEnum.DIFFERENT_ID.getHttpCode());
+            //}
+            //else if (!validateSameIdType(request, opSearchEntity))
+            //{
+            //    throw new SerfiException(ResponseServiceEnum.DIFFERENT_TYPE.getErrorCode(), ResponseServiceEnum.DIFFERENT_TYPE.getMessage(), ResponseServiceEnum.DIFFERENT_TYPE.getHttpCode());
+            //}
         }
 
     }

@@ -10,7 +10,7 @@ namespace application.mapper
 {
     public class ResponseSerfiMapper
     {
-        public MsgInformationResponseSerfi mapMessageResponseAccount(OSDefinitive osIndexDefinitive, UpdateAccountRq updateKey, MessageInformation messageInformation)
+        public MsgInformationResponseSerfi mapMessageResponseAccount(UpdateAccountRq updateKey, MsgInformationResponse messageInformation)
         {
             MsgInformationResponseSerfi msgInformationResponseSerfi = new MsgInformationResponseSerfi();
             Meta meta = new Meta();
@@ -19,8 +19,8 @@ namespace application.mapper
             meta.systemId = "";
             msgInformationResponseSerfi.meta = meta;
 
-            msgInformationResponseSerfi.statusCodigo = messageInformation.msgCode;
-            msgInformationResponseSerfi.statusDesc = messageInformation.msgDescription;
+            msgInformationResponseSerfi.statusCodigo = messageInformation.messageInformation.msgCode;
+            msgInformationResponseSerfi.statusDesc = messageInformation.messageInformation.msgDescription;
 
             AditionalInfo aditionalInfoItem = new AditionalInfo();
             aditionalInfoItem.codigo = "";

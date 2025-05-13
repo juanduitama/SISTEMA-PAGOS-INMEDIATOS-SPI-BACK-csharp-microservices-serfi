@@ -77,21 +77,22 @@ namespace application.controllers
             {
                 _logger.LogInformation("Iniciando proceso de actualización de cuenta");
 
-                MessageInformation responseRedeban;
+                MsgInformationResponse responseRedeban;
 
                 validateService.ValidateServiceUpdateAccountModel(request);
 
                 _logger.LogInformation("Termino el proceso de validacion");
 
                 //Buscamos llave
-                OSDefinitive opSearchOldEntity = await _openSearchService.SearchKey(request.reqBPatchAccount.key.keyType, request.reqBPatchAccount.key.keyId);
+                //OSDefinitive opSearchOldEntity = await _openSearchService.SearchKey(request.reqBPatchAccount.key.keyType, request.reqBPatchAccount.key.keyId);
 
-                string opSearchOldEntityPrint = await UtilCommons.Object2String(opSearchOldEntity);
-                _logger.LogInformation("OS entity: " + opSearchOldEntityPrint);
+                //string opSearchOldEntityPrint = await UtilCommons.Object2String(opSearchOldEntity);
+                //_logger.LogInformation("OS entity: " + opSearchOldEntityPrint);
 
-                validateService.validateOSEntityAccount(request, opSearchOldEntity);
+                //validateService.validateOSEntityAccount(request, opSearchOldEntity);
 
                 //string apiUri = _uriUtil.BuildUri(ConstantsEnum.ACCOUNT_UPDATE);
+
                 string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/AccountUpdate";
 
                 _logger.LogInformation($"URL completa: {apiUri}");
@@ -99,34 +100,37 @@ namespace application.controllers
                 // Obtener headers de la solicitud
                 HeadersRq headersRq = _redRqMapper.MapHeadersFromRequest(request.updateHeaders);
 
-                UpdateAcctRq updateBody = _redRqMapper.MapBodyAccountFromRequest(request.reqBPatchAccount, opSearchOldEntity);
+                UpdateAcctRq updateBody = _redRqMapper.MapBodyAccountFromRequest(request.reqBPatchAccount);
 
                 // Llamar al servicio
-                MessageInformation response = await _updateService.UpdateAccountAsync(apiUri, headersRq, updateBody);
+                responseRedeban = await _updateService.UpdateAccountAsync(apiUri, headersRq, updateBody);
 
-                if (response.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || response.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
+                Console.WriteLine("Respuesta de redeban: " + await UtilCommons.Object2String(responseRedeban));
+
+                if (responseRedeban.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || responseRedeban.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
                 {
-                    _logger.LogInformation("Se modificó el producto exitosamente: " + response.ToString());
+                    _logger.LogInformation("Se modificó el producto exitosamente. ");
                 }
                 else
                 {
-                    _logger.LogError($"No se pudo modificar el producto: " + response.ToString());
-                    //Fata exception
+                    _logger.LogError($"No se pudo modificar el producto. ");
                     throw new SerfiException(ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getMessage(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getHttpCode());
                 }
 
-                _logger.LogInformation("Iniciando proceso de guardado en open search.");
+                //_logger.LogInformation("Iniciando proceso de guardado en open search.");
                 // Falta mapeo
-                OSDefinitive entityToSave = _rqMapperOs.mapUpdateAccountOSDefinitiveFromRequest(request, opSearchOldEntity);
+                //OSDefinitive entityToSave = _rqMapperOs.mapUpdateAccountOSDefinitiveFromRequest(request, opSearchOldEntity);
 
-                await _openSearchService.SaveKey(entityToSave);
+                //await _openSearchService.SaveKey(entityToSave);
 
-                await _openSearchService.DeleteKey(opSearchOldEntity.key.keyType, opSearchOldEntity.key.keyId);
+                //await _openSearchService.DeleteKey(opSearchOldEntity.key.keyType, opSearchOldEntity.key.keyId);
 
-                _logger.LogInformation("Se modificó en open search correctamente.");
+                //_logger.LogInformation("Se modificó en open search correctamente.");
 
 
-                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseAccount(entityToSave, request, response);
+                //MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseAccount(entityToSave, request, response);
+                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseAccount(request, responseRedeban);
+
 
                 _logger.LogInformation("Finalizo el proceso");
 

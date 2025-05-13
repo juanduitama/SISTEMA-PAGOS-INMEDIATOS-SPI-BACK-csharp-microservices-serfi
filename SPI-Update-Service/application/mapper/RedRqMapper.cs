@@ -7,6 +7,8 @@ using domain.models.redeban;
 using SPI_Update_Service.domain.models.redeban;
 using domain.models.openSearchModel;
 using application.util;
+using domain.models.oAuth;
+using OpenSearch.Client;
 
 namespace application.mapper
 {
@@ -23,8 +25,22 @@ namespace application.mapper
 
         }
 
-        public void AddUpdateHeaders(HttpClient request, HeadersRq headers)
+        public void AddUpdateHeaders(HttpClient request, HeadersRq headers, string token)
         {
+
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CONTENT_TYPE, headers.ContentType);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.DATE, headers.Date);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_FROM, headers.RBMFrom);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ACCEPT, headers.Accept);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_FORWARDED_FOR, headers.XForwardedFor);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_REQUEST_ID, Guid.NewGuid().ToString("D"));
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ORIGIN, ConstantsEnum.ORIGIN);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CHANNEL, headers.Channel);
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RQ_ID, random.NextInt64(100000000000, 999999999999).ToString());
+            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_USER_DATE, headers.RBMUserDate);
+
+
+
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CONTENT_TYPE, headers.ContentType);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.DATE, headers.Date);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_FROM, headers.RBMFrom);
@@ -32,9 +48,8 @@ namespace application.mapper
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_FORWARDED_FOR, headers.XForwardedFor);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_REQUEST_ID, Guid.NewGuid().ToString("D"));
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ORIGIN, ConstantsEnum.ORIGIN);
-            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CHANNEL, headers.Channel);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RQ_ID, random.NextInt64(100000000000, 999999999999).ToString());
-            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_USER_DATE, headers.RBMUserDate);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.AUTHORIZATION, ConstantsEnum.BEARER + " " + token.Trim());
             Console.WriteLine("Estos son los headers para http");
 
         }
@@ -45,19 +60,35 @@ namespace application.mapper
             HeadersRq headersRed = new HeadersRq();
 
             string newDate = headersRq.timeStamps.Replace("Z", "");
-            
-            headersRed.ContentType = ConstantsEnum.APPLICATION_JSON;
+
             headersRed.Date = newDate;
-            headersRed.RBMFrom = ConstantsEnum.RBM_FROM;
+            headersRed.ContentType = ConstantsEnum.APPLICATION_JSON;
             headersRed.Accept = ConstantsEnum.APPLICATION_JSON;
+            headersRed.Origin = RedHeadersEnum.ORIGIN;
             headersRed.XForwardedFor = ConstantsEnum.IP_ORIGIN;
             headersRed.XRequestId = headersRq.uuId;
-            headersRed.Origin = RedHeadersEnum.ORIGIN;
+            headersRed.RBMFrom = ConstantsEnum.RBM_FROM;
 
             return headersRed;
 
         }
-        
+
+        public void addOauthHeaders(HttpClient request)
+        {
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CONTENT_TYPE, ConstantsEnum.APPLICATION_URL_ENCODE);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_IBM_CLIENT_ID, ConstantsEnum.IBM_CLIENT_ID);
+            request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_IBM_CLIENT_SECRET, ConstantsEnum.IBM_Client_Secret);
+        }
+
+
+        public RqOAuth mapBodyOauth()
+        {
+            RqOAuth rqOauth = new RqOAuth();
+            rqOauth.scopes = ConstantsEnum.SCOPES;
+            rqOauth.grantType = ConstantsEnum.GRANTYPE;
+            return rqOauth;
+        }
+
         public  UpdateKeyPersonRq MapBodyKeyFromRequest(UpdateKeyRq request) 
         {
           
@@ -77,42 +108,27 @@ namespace application.mapper
 
         }
 
-        public UpdateAcctRq MapBodyAccountFromRequest(ReqBPatchAccount reqBPatchAccount, OSDefinitive osOldDefinitive)
+        public UpdateAcctRq MapBodyAccountFromRequest(ReqBPatchAccount reqBPatchAccount)
         {
             UpdateAcctRq bodyRed = new UpdateAcctRq();
 
             
             bodyRed.requestDateTime = DateTime.Now.ToString("YYYY-MM-DDThh:mm:ss.SSS");
 
-            Console.WriteLine(DateTime.Now.ToString("YYYY-MM-DDThh:mm:ss.SSS"));
-
             Customer customer = new Customer();
-            customer.type = osOldDefinitive.custInfoOS.custType;            
+            customer.type = reqBPatchAccount.custInfo.custType;
 
-
-            Person person = new Person();
-
-            person.firstName = osOldDefinitive.custInfoOS.firstName;
-            person.middleName = osOldDefinitive.custInfoOS.secondName;
-            person.firstSurName = osOldDefinitive.custInfoOS.lastName;
-            person.middleSurName = osOldDefinitive.custInfoOS.secondLastName;
-
-            
-            person.documentType = osOldDefinitive.custInfoOS.custIdent.custIdentType;
-            person.documentNumber = osOldDefinitive.custInfoOS.custIdent.custIdentId;
-
-            PersonContact personContact = new PersonContact();
-            personContact.mobileNumber = osOldDefinitive.custInfoOS.custContact.custMobileNumber;
-
-            person.personContact = personContact;
-
-            customer.person = person;
             bodyRed.customer = customer;
 
             Account account = new Account();
 
-            account.typeAccount = reqBPatchAccount.acctInfo.newAcctType != null ? reqBPatchAccount.acctInfo.newAcctType : osOldDefinitive.acctInfo.acctType;
-            account.accountNo = reqBPatchAccount.acctInfo.newAcctId != null ? reqBPatchAccount.acctInfo.newAcctId : osOldDefinitive.acctInfo.acctId;
+            //account.typeAccount = reqBPatchAccount.acctInfo.newAcctType != null ? reqBPatchAccount.acctInfo.newAcctType : osOldDefinitive.acctInfo.acctType;
+            //account.accountNo = reqBPatchAccount.acctInfo.newAcctId != null ? reqBPatchAccount.acctInfo.newAcctId : osOldDefinitive.acctInfo.acctId;
+            //account.ageAccount = reqBPatchAccount.acctInfo.ageAccount != null ? reqBPatchAccount.acctInfo.ageAccount : osOldDefinitive.acctInfo.ageAccount;
+
+            account.typeAccount = reqBPatchAccount.acctInfo.newAcctType != null ? reqBPatchAccount.acctInfo.newAcctType : reqBPatchAccount.acctInfo.oldAcctType;
+            account.accountNo = reqBPatchAccount.acctInfo.newAcctId != null ? reqBPatchAccount.acctInfo.newAcctId : reqBPatchAccount.acctInfo.oldAcctId;
+            account.ageAccount = reqBPatchAccount.acctInfo.ageAccount;
 
             Product product = new Product();
             

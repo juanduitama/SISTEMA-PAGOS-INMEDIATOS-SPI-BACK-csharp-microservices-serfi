@@ -99,6 +99,7 @@ namespace domain.constants
 
         public const string RBM_USER_DATE = "RBM-UserDate";
 
-
+        public const string X_IBM_CLIENT_ID = "X-IBM-Client-Id";
+        public const string X_IBM_CLIENT_SECRET = "X-IBM-Client-Secret";
     }
 }
