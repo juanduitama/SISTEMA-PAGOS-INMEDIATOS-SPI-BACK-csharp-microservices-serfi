@@ -1,0 +1,13 @@
+variables:
+- name: repositoryName #Nombre del repositorio de azure DevOps
+  value: 'cre-breb-p2m-directorio-redeban-ms-dotnet' 
+- name: solutionName #Nombre de la solucion
+  value: 'SPI-Enrollment-Service.sln'
+- name: solutionRoute #Ruta de la solucion
+  value: 'src'
+- name: dockerfileRoute #Ruta del dockerfile
+  value: 'src'
+- name: EcrRepositoryName #Nombre del repositorio de ECR
+  value: 'directorioredeban-p2m'
+- name: UrlGitRepository #Url del repositorio de git
+  value: 'bancoserfinanza@dev.azure.com/bancoserfinanza/REDEBAN/_git/cre-breb-p2m-directorio-redeban-ms-dotnet' #Without http:// or https://

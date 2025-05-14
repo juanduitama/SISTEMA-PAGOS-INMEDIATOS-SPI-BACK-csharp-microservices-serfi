@@ -1,0 +1,36 @@
+variables:
+  - group: Commons-Azure
+  - template: ../commons/values.yml
+
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: 'DevOps/templates-ci-cd'
+      ref: refs/heads/main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: CI_CD
+  jobs:
+  - template: /pipelines/netcore/templates/ci_cd.yml@templates
+    parameters:
+      #Parameters to
+      SolutionName: $(solutionName)
+      SolutionRoute: $(solutionRoute)
+      repositoryName: $(repositoryName)
+      UrlGitRepository: $(UrlGitRepository)
+      EcrRepositoryName: $(EcrRepositoryName)
+      DockerfileRoute: $(dockerfileRoute)
