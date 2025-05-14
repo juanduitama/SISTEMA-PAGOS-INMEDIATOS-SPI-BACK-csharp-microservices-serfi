@@ -68,7 +68,7 @@ namespace application.Services
             //Validaciones oldAcctType
              if (!validateAccountType(updateAccount.reqBPatchAccount.acctInfo.oldAcctType))
             {
-                throw new SerfiException(ResponseServiceEnum.INVALID_ACCTYPE.getErrorCode(), ResponseServiceEnum.INVALID_ACCTYPE.getMessage(), ResponseServiceEnum.INVALID_ACCTYPE.getHttpCode());
+                throw new SerfiException(ResponseServiceEnum.INVALID_OLD_ACCTYPE.getErrorCode(), ResponseServiceEnum.INVALID_OLD_ACCTYPE.getMessage(), ResponseServiceEnum.INVALID_OLD_ACCTYPE.getHttpCode());
             }
             //Validaciones oldAcctId
             else if (!validateRegex(updateAccount.reqBPatchAccount.acctInfo.oldAcctId, ValidationEnums.ACCOUNT_ID))

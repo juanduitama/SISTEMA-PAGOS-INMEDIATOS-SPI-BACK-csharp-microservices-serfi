@@ -42,7 +42,7 @@ namespace application.mapper
             return msgInformationResponseSerfi;
         }
 
-        public MsgInformationResponseSerfi mapMessageResponseKey(OSDefinitive osIndexDefinitive, UpdateKeyRq updateKey, MessageInformation messageInformation)
+        public MsgInformationResponseSerfi mapMessageResponseKey( UpdateKeyRq updateKey, MsgInformationResponse messageInformation)
         {
             MsgInformationResponseSerfi msgInformationResponseSerfi = new MsgInformationResponseSerfi();
             Meta meta = new Meta();
@@ -51,8 +51,8 @@ namespace application.mapper
             meta.systemId = "";
             msgInformationResponseSerfi.meta = meta;
 
-            msgInformationResponseSerfi.statusCodigo = messageInformation.msgCode;
-            msgInformationResponseSerfi.statusDesc = messageInformation.msgDescription;
+            msgInformationResponseSerfi.statusCodigo = messageInformation.messageInformation.msgCode;
+            msgInformationResponseSerfi.statusDesc = messageInformation.messageInformation.msgDescription;
 
             AditionalInfo aditionalInfoItem = new AditionalInfo();
             aditionalInfoItem.codigo = "";

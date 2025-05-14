@@ -53,17 +53,22 @@ namespace SPI_Update_Service.service.update
         }
         
 
-        public async Task<MessageInformation> UpdateKeyAsync(string url, HeadersRq headers, UpdateKeyPersonRq requestBody)
+        public async Task<MsgInformationResponse> UpdateKeyAsync(string url, HeadersRq headers, UpdateKeyPersonRq requestBody)
         {
             try
             {
-                MessageInformation responseRedeban = new MessageInformation();
+                MsgInformationResponse responseRedeban = new MsgInformationResponse();
 
                 Console.WriteLine($"[INFO] Iniciando solicitud PATCH Update account a: {url}");
 
                 ClearHeaders();
+                RsOAuth responseOauth = await _oauthService.getToken(ConstantsEnum.BASE_URI_OAUTH, _httpClient);
 
-                redMapper.AddUpdateHeaders(_httpClient, headers);
+                Console.WriteLine("Token obtenido Oauth: " + responseOauth.accessToken);
+
+                ClearHeaders();
+
+                redMapper.AddUpdateHeaders(_httpClient, headers, responseOauth.accessToken);
                 
                 string jsonContent = await UtilCommons.Object2String(requestBody);
 
@@ -82,7 +87,7 @@ namespace SPI_Update_Service.service.update
 
                 Console.WriteLine($"[WARN] Respuesta de error: {responseContent}");
                 
-                responseRedeban = await UtilCommons.String2Object<MessageInformation>(responseContent);
+                responseRedeban = await UtilCommons.String2Object<MsgInformationResponse>(responseContent);
 
                 Console.WriteLine($"[RES] Respuesta: {responseRedeban.ToString()}");
 

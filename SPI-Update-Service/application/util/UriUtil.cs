@@ -6,24 +6,6 @@ namespace application.Util
 {
     public class UriUtil
     {
-        private readonly IConfiguration _configuration;
-        private readonly string _baseUri;
-
-        public UriUtil(IConfiguration configuration = null)
-        {
-            _configuration = configuration;
-
-            // Si hay configuración disponible, usar la URL base de las configuraciones
-            if (_configuration != null)
-            {
-                _baseUri = _configuration["ApiSettings:BaseUrl"] ?? ConstantsEnum.BASE_URI;
-            }
-            else
-            {
-                // De lo contrario, usar la URL base definida en las constantes
-                _baseUri = ConstantsEnum.BASE_URI;
-            }
-        }
 
         /// <summary>
         /// Construye una URI para consultas basada en el tipo de operación y parámetros de ruta
@@ -31,38 +13,27 @@ namespace application.Util
         /// <param name="methodDescription">Tipo de operación según las constantes definidas</param>
         /// <param name="routeValues">Diccionario con los valores de ruta</param>
         /// <returns>URI completa para la operación</returns>
-        public string BuildUri(string methodDescription, RouteValueDictionary routeValues = null)
-        {
-            switch (methodDescription)
+        public string BuildUriAccount(string valueKey, string valueType)
             {
-                case ConstantsEnum.KEY_INQUIRY:
-                    return _baseUri + "key/" + GetRouteValue(routeValues, "keyValue");
 
-                case ConstantsEnum.ID_INQUIRY:
-                    return _baseUri + "DocumentType/" + GetRouteValue(routeValues, "DocumentType") +
-                           "/identification/" + GetRouteValue(routeValues, "ID");
+            string _baseUri = ConstantsEnum.BASE_URI_ACCOUNT;
+                string newUrl = getValuePathParameters(_baseUri, ConstantsEnum.KEY_TYPE_PATH, valueType);
 
-                case ConstantsEnum.MERCHANT_INQUIRY:
-                    return _baseUri + "commerce/" + GetRouteValue(routeValues, "MerchantID");
+            newUrl = getValuePathParameters(newUrl, ConstantsEnum.KEY_VALUE_PATH, valueKey);
 
-                case ConstantsEnum.ENROLLMENT:
-                    return _baseUri + "key";
+            Console.WriteLine("new url final: " + newUrl);
 
-                case ConstantsEnum.KEY_UPDATE:
-                    return _baseUri + "key/" + GetRouteValue(routeValues, "ID");
-
-                case ConstantsEnum.ACCOUNT_UPDATE:
-                    return _baseUri + "keytype/" + GetRouteValue(routeValues, "keyType") +
-                           "/key/" + GetRouteValue(routeValues, "keyValue");
-
-                case ConstantsEnum.DELETE:
-                    return _baseUri + "keytype/" + GetRouteValue(routeValues, "keyType") +
-                           "/key/" + GetRouteValue(routeValues, "keyValue");
-
-                default:
-                    return _baseUri;
+            return newUrl;
             }
-        }
+        
+
+        public string BuildUriKey(string valueId)
+            {
+                string _baseUri = ConstantsEnum.BASE_URI_KEY;
+            Console.WriteLine("Base url: "+_baseUri);
+            return getValuePathParameters(_baseUri, ConstantsEnum.ID_PATH, valueId);
+            }
+        
 
      
         /// <summary>
@@ -71,14 +42,15 @@ namespace application.Util
         /// <param name="routeValues">Diccionario de valores de ruta</param>
         /// <param name="key">Clave a buscar</param>
         /// <returns>Valor encontrado o cadena vacía</returns>
-        private string GetRouteValue(RouteValueDictionary routeValues, string key)
-        {
-            if (routeValues == null || !routeValues.TryGetValue(key, out var value))
+        private string getValuePathParameters(string uri, string pathParameter, string valueParameter)
             {
-                return string.Empty;
-            }
+                if (uri.Contains(pathParameter))
+                {
+                    return uri.Replace(pathParameter, valueParameter);
+                }
 
-            return value?.ToString() ?? string.Empty;
-        }
+                return uri;
+            
+            }
     }
 }

@@ -43,7 +43,12 @@ namespace domain.constants
 
 
         public const string BASE_URI_OAUTH = "https://gateway.qa.sandboxhubredeban.com/rbmcalidad/calidad/oauth2.0/oauth2/token";
-        public const string BASE_URI = "https://10.130.1.74:5067/FederateDirectoryIntegrationRBM_SPI/rbmcalidad/calidad/api/dir/v3.0.0/Directory/";
+        public const string BASE_URI_ACCOUNT = "https://gateway.qa.sandboxhubredeban.com/rbmcalidad/calidad/api/dir/v3.0.0/Directory/keytype/" + ConstantsEnum.KEY_TYPE_PATH + "/key/" + ConstantsEnum.KEY_VALUE_PATH;
+        public const string BASE_URI_KEY = "https://gateway.qa.sandboxhubredeban.com/rbmcalidad/calidad/api/dir/v3.0.0/Directory/key/" + ConstantsEnum.ID_PATH;
+        public const string KEY_VALUE_PATH = "{keyValue}";
+        public const string KEY_TYPE_PATH = "{keyType}";
+        public const string ID_PATH = "{ID}";
+
 
     }
 }

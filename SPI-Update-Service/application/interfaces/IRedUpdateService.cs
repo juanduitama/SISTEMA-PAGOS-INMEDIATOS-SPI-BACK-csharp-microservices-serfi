@@ -15,6 +15,6 @@ namespace SPI_Update_Service.service.update
         /// Método para eliminar una llave
         /// </summary>
         Task<MsgInformationResponse> UpdateAccountAsync(string url, HeadersRq headers, UpdateAcctRq request);
-        Task<MessageInformation> UpdateKeyAsync(string url, HeadersRq headers, UpdateKeyPersonRq request);
+        Task<MsgInformationResponse> UpdateKeyAsync(string url, HeadersRq headers, UpdateKeyPersonRq request);
     }
 }

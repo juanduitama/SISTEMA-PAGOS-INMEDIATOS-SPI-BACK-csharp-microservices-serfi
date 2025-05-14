@@ -18,6 +18,7 @@ using application.interfaces;
 using domain.models.redeban.response;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using OpenSearch.Client;
 
 namespace application.controllers
 {
@@ -26,7 +27,6 @@ namespace application.controllers
     public class UpdateController : ControllerBase
     {
         private readonly IRedUpdateService _updateService;
-        private readonly ILogger<UpdateController> _logger;
         private readonly UriUtil _uriUtil;
         private readonly ValidateService validateService = new ValidateService();
         private readonly HeaderSerfiMapper _headersMapper = new HeaderSerfiMapper();
@@ -36,11 +36,9 @@ namespace application.controllers
         private readonly ResponseSerfiMapper _rsSerfiMapper = new ResponseSerfiMapper();
 
         public UpdateController(
-            IRedUpdateService updateService,
-            ILogger<UpdateController> logger)
+            IRedUpdateService updateService)
         {
             _updateService = updateService;
-            _logger = logger;
             _uriUtil = new UriUtil();
         }
 
@@ -67,35 +65,35 @@ namespace application.controllers
             UpdateAccountRq request = new UpdateAccountRq();
             request.updateHeaders = _headersMapper.mapHeaders(apiKeyHeader, authHeader, uuidHeader, timestampsHeader, systemIdHeader);
             string headers = await UtilCommons.Object2String(request.updateHeaders);
-            _logger.LogInformation("headers: " + headers);
+            Console.WriteLine("headers: " + headers);
 
             request.reqBPatchAccount = body;
             string body1 = await UtilCommons.Object2String(request.reqBPatchAccount);
-            _logger.LogInformation("body: " + body1);
+            Console.WriteLine("body: " + body1);
 
             try
             {
-                _logger.LogInformation("Iniciando proceso de actualización de cuenta");
+                Console.WriteLine("Iniciando proceso de actualización de cuenta");
 
                 MsgInformationResponse responseRedeban;
 
                 validateService.ValidateServiceUpdateAccountModel(request);
 
-                _logger.LogInformation("Termino el proceso de validacion");
+                Console.WriteLine("Termino el proceso de validacion");
 
                 //Buscamos llave
                 //OSDefinitive opSearchOldEntity = await _openSearchService.SearchKey(request.reqBPatchAccount.key.keyType, request.reqBPatchAccount.key.keyId);
 
                 //string opSearchOldEntityPrint = await UtilCommons.Object2String(opSearchOldEntity);
-                //_logger.LogInformation("OS entity: " + opSearchOldEntityPrint);
+                //Console.WriteLine("OS entity: " + opSearchOldEntityPrint);
 
                 //validateService.validateOSEntityAccount(request, opSearchOldEntity);
 
-                //string apiUri = _uriUtil.BuildUri(ConstantsEnum.ACCOUNT_UPDATE);
+                string apiUri = _uriUtil.BuildUriAccount(request.reqBPatchAccount.key.keyId, request.reqBPatchAccount.key.keyType);
 
-                string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/AccountUpdate";
+                //string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/AccountUpdate";
 
-                _logger.LogInformation($"URL completa: {apiUri}");
+                Console.WriteLine($"URL completa: {apiUri}");
 
                 // Obtener headers de la solicitud
                 HeadersRq headersRq = _redRqMapper.MapHeadersFromRequest(request.updateHeaders);
@@ -106,18 +104,17 @@ namespace application.controllers
                 responseRedeban = await _updateService.UpdateAccountAsync(apiUri, headersRq, updateBody);
 
                 Console.WriteLine("Respuesta de redeban: " + await UtilCommons.Object2String(responseRedeban));
-
                 if (responseRedeban.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || responseRedeban.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
                 {
-                    _logger.LogInformation("Se modificó el producto exitosamente. ");
+                    Console.WriteLine("Se modificó el producto exitosamente. ");
                 }
                 else
                 {
-                    _logger.LogError($"No se pudo modificar el producto. ");
+                    Console.WriteLine($"No se pudo modificar el producto. ");
                     throw new SerfiException(ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getMessage(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getHttpCode());
                 }
 
-                //_logger.LogInformation("Iniciando proceso de guardado en open search.");
+                //Console.WriteLine("Iniciando proceso de guardado en open search.");
                 // Falta mapeo
                 //OSDefinitive entityToSave = _rqMapperOs.mapUpdateAccountOSDefinitiveFromRequest(request, opSearchOldEntity);
 
@@ -125,21 +122,21 @@ namespace application.controllers
 
                 //await _openSearchService.DeleteKey(opSearchOldEntity.key.keyType, opSearchOldEntity.key.keyId);
 
-                //_logger.LogInformation("Se modificó en open search correctamente.");
+                //Console.WriteLine("Se modificó en open search correctamente.");
 
 
                 //MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseAccount(entityToSave, request, response);
                 MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseAccount(request, responseRedeban);
 
 
-                _logger.LogInformation("Finalizo el proceso");
+                Console.WriteLine("Finalizo el proceso");
 
                 return Ok(responseService);
                 //return null;
             }
             catch (JsonException ex)
             {
-                _logger.LogError($"Error al procesar JSON: {ex.Message}");
+                Console.WriteLine($"Error al procesar JSON: {ex.Message}");
 
                 return BadRequest(new
                 {
@@ -149,7 +146,7 @@ namespace application.controllers
             }
             catch (SerfiException ex)
             {
-                _logger.LogError($"Error de serfinanzas: {ex.Message}");
+                Console.WriteLine($"Error de serfinanzas: {ex.Message}");
 
                 return BadRequest(new
                 {
@@ -159,7 +156,7 @@ namespace application.controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error en la inscripción: {ex.Message}");
+                Console.WriteLine($"Error en la inscripción: {ex.Message}");
 
                 return StatusCode(500, new
                 {
@@ -191,58 +188,59 @@ namespace application.controllers
 
             try
             {
-                _logger.LogInformation("Iniciando proceso de actualización de llave");
-                MessageInformation responseRedeban;
+                Console.WriteLine("Iniciando proceso de actualización de llave");
+                MsgInformationResponse responseRedeban;
                 validateService.ValidateServiceUpdateKeyModel(request);
 
-                _logger.LogInformation("Termino el proceso de validacion");
-                OSDefinitive opSearchOldEntity = await _openSearchService.SearchKey(request.reqBPatchKey.key.oldKeyType, request.reqBPatchKey.key.oldKeyId);
-                string opSearchOldEntityPrint = await UtilCommons.Object2String(opSearchOldEntity);
-                _logger.LogInformation("OS entity: " + opSearchOldEntityPrint);
+                Console.WriteLine("Termino el proceso de validacion");
+                //OSDefinitive opSearchOldEntity = await _openSearchService.SearchKey(request.reqBPatchKey.key.oldKeyType, request.reqBPatchKey.key.oldKeyId);
+                //string opSearchOldEntityPrint = await UtilCommons.Object2String(opSearchOldEntity);
+                //Console.WriteLine("OS entity: " + opSearchOldEntityPrint);
 
-                validateService.validateOSEntity(request, opSearchOldEntity);
+                //validateService.validateOSEntity(request, opSearchOldEntity);
 
                 //string apiUri = _uriUtil.BuildUri(ConstantsEnum.KEY_UPDATE);
-                string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/KeyUpdate";
+                string apiUri = _uriUtil.BuildUriKey(request.reqBPatchKey.custInfo.custIdent.custIdentId);
+                //string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/KeyUpdate";
 
-                _logger.LogInformation($"URL completa: {apiUri}");
+                Console.WriteLine($"URL completa: {apiUri}");
 
                 // Obtener headers de la solicitud
                 HeadersRq headersRq = _redRqMapper.MapHeadersFromRequest(request.updateHeaders);
                 UpdateKeyPersonRq updateBody = _redRqMapper.MapBodyKeyFromRequest(request);
 
                 // Llamar al servicio
-                MessageInformation response = await _updateService.UpdateKeyAsync(apiUri, headersRq, updateBody);
+                MsgInformationResponse response = await _updateService.UpdateKeyAsync(apiUri, headersRq, updateBody);
 
-                if (response.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || response.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
+                if (response.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || response.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
                 {
-                    _logger.LogInformation("Se modificó la llave exitosamente: " + response.ToString());
+                    Console.WriteLine("Se modificó la llave exitosamente: " + response.ToString());
                 }
                 else
                 {
-                    _logger.LogError($"No se pudo modificar la llave: " + response.ToString());
+                    Console.WriteLine($"No se pudo modificar la llave: " + response.ToString());
                     throw new SerfiException(ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getMessage(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getHttpCode());
                 }
 
-                _logger.LogInformation("Iniciando proceso de guardado en open search.");
-                OSDefinitive entityToSave = _rqMapperOs.mapUpdateKeyOSDefinitiveFromRequest(request, opSearchOldEntity);
+                //Console.WriteLine("Iniciando proceso de guardado en open search.");
+                //OSDefinitive entityToSave = _rqMapperOs.mapUpdateKeyOSDefinitiveFromRequest(request, opSearchOldEntity);
 
-                await _openSearchService.SaveKey(entityToSave);
+                //await _openSearchService.SaveKey(entityToSave);
 
-                await _openSearchService.DeleteKey(opSearchOldEntity.key.keyType, opSearchOldEntity.key.keyId);
+                //await _openSearchService.DeleteKey(opSearchOldEntity.key.keyType, opSearchOldEntity.key.keyId);
 
-                _logger.LogInformation("Se modificó en open search correctamente.");
+                //Console.WriteLine("Se modificó en open search correctamente.");
 
 
-                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseKey(entityToSave, request, response);
+                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseKey( request, response);
 
-                _logger.LogInformation("Finalizo el proceso");
+                Console.WriteLine("Finalizo el proceso");
 
                 return Ok(responseService);
             }
             catch (JsonException ex)
             {
-                _logger.LogError($"Error al procesar JSON: {ex.Message}");
+                Console.WriteLine($"Error al procesar JSON: {ex.Message}");
 
                 return BadRequest(new
                 {
@@ -252,7 +250,7 @@ namespace application.controllers
             }
             catch (SerfiException ex)
             {
-                _logger.LogError($"Error de serfinanzas: {ex.Message}");
+                Console.WriteLine($"Error de serfinanzas: {ex.Message}");
 
                 return BadRequest(new
                 {
@@ -262,7 +260,7 @@ namespace application.controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error en la inscripción: {ex.Message}");
+                Console.WriteLine($"Error en la inscripción: {ex.Message}");
 
                 return StatusCode(500, new
                 {
