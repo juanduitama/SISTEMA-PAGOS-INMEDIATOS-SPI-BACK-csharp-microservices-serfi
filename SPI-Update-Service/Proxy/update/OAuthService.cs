@@ -1,31 +1,24 @@
-﻿
-
-using application.interfaces;
-using application.mapper;
-using application.util;
-using application.Util;
-using domain.constants;
+﻿using domain.constants;
 using domain.models.oAuth;
+using SPI_Update_Service.Proxy.interfaces;
+using SPI_Update_Service.Utils.mapper;
+using SPI_Update_Service.Utils.util;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 
-namespace application.Services
+namespace SPI_Update_Service.Proxy.update
 {
     public class OAuthService : IOauthServices
     {
 
         private readonly RedRqMapper redMapper = new RedRqMapper();
 
-        private readonly BuilderHttpUtil _BuilderHttpUtil;
-
 
         public OAuthService()
         {
 
         }
-
-
 
         public async Task<bool> validateToken(string token)
         {
@@ -35,9 +28,9 @@ namespace application.Services
         public async Task<RsOAuth> getToken(string url, HttpClient _httpClient)
         {
 
-            
+
             Console.WriteLine($"Comienza obtención de token \n url: {url}");
-            
+
             _httpClient.DefaultRequestHeaders.Clear();
             // Agregar cabeceras HTTP necesarias
             redMapper.addOauthHeaders(_httpClient);
@@ -72,7 +65,7 @@ namespace application.Services
 
             if (rqOAuth != null)
             {
-                formData.Add("grant_type", "client_credentials"); 
+                formData.Add("grant_type", "client_credentials");
 
                 formData.Add("data", JsonSerializer.Serialize(rqOAuth));
 
@@ -82,4 +75,4 @@ namespace application.Services
         }
 
     }
-    }
+}

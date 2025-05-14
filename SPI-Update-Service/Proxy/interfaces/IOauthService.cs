@@ -1,6 +1,6 @@
 ﻿using domain.models.oAuth;
 
-namespace application.interfaces
+namespace SPI_Update_Service.Proxy.interfaces
 {
     public interface IOauthServices
     {

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Text;
-using System.Threading.Tasks;
+
 using System.Text.Json;
 using domain.models.redeban;
-using application.Util;
+
 using SPI_Update_Service.domain.models.redeban;
 using domain.constants;
-using application.mapper;
 using domain.models.redeban.response;
-using application.util;
 using domain.models.oAuth;
-using application.interfaces;
-using application.Services;
 
-namespace SPI_Update_Service.service.update
+using SPI_Update_Service.Proxy.interfaces;
+using SPI_Update_Service.Utils.util;
+using SPI_Update_Service.Utils.mapper;
+
+namespace SPI_Update_Service.Proxy.update
 {
     public class RedUpdateServiceImpl : IRedUpdateService
     {
@@ -41,8 +39,8 @@ namespace SPI_Update_Service.service.update
         public RedUpdateServiceImpl()
         {
             _BuilderHttpUtil = new BuilderHttpUtil();
-            _httpClient = _BuilderHttpUtil.BuildClient();
-            
+            _httpClient = _BuilderHttpUtil.BuildClientWithServerCertificate();
+
             _jsonOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -51,71 +49,7 @@ namespace SPI_Update_Service.service.update
             redMapper = new RedRqMapper();
 
         }
-        
 
-        public async Task<MsgInformationResponse> UpdateKeyAsync(string url, HeadersRq headers, UpdateKeyPersonRq requestBody)
-        {
-            try
-            {
-                MsgInformationResponse responseRedeban = new MsgInformationResponse();
-
-                Console.WriteLine($"[INFO] Iniciando solicitud PATCH Update account a: {url}");
-
-                ClearHeaders();
-                RsOAuth responseOauth = await _oauthService.getToken(ConstantsEnum.BASE_URI_OAUTH, _httpClient);
-
-                Console.WriteLine("Token obtenido Oauth: " + responseOauth.accessToken);
-
-                ClearHeaders();
-
-                redMapper.AddUpdateHeaders(_httpClient, headers, responseOauth.accessToken);
-                
-                string jsonContent = await UtilCommons.Object2String(requestBody);
-
-                Console.WriteLine($"[DEBUG] JSON a enviar: {jsonContent}");
-
-                var content = new StringContent(jsonContent, Encoding.UTF8, ConstantsEnum.APPLICATION_JSON);
-
-                string contentBody = await content.ReadAsStringAsync();
-
-                Console.WriteLine("[INFO] Enviando solicitud PATCH...");
-                HttpResponseMessage response = await _httpClient.PatchAsync(url, content);
-
-                Console.WriteLine($"[INFO] Respuesta recibida con código: {response.StatusCode}");
-
-                string responseContent = await response.Content.ReadAsStringAsync();
-
-                Console.WriteLine($"[WARN] Respuesta de error: {responseContent}");
-                
-                responseRedeban = await UtilCommons.String2Object<MsgInformationResponse>(responseContent);
-
-                Console.WriteLine($"[RES] Respuesta: {responseRedeban.ToString()}");
-
-                return responseRedeban;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"[ERROR] Error de solicitud HTTP: {ex.Message}");
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine($"[ERROR] Inner Exception: {ex.InnerException.Message}");
-                }
-                throw; // Re-lanzamos la excepción para que la función Lambda la maneje
-            }
-            catch (JsonException ex)
-            {
-                Console.WriteLine($"[ERROR] Error al procesar JSON: {ex.Message}");
-                throw;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[ERROR] Error inesperado: {ex.Message}");
-                Console.WriteLine($"[ERROR] Stack Trace: {ex.StackTrace}");
-                throw;
-            }
-
-            throw new NotImplementedException();
-        }
         public async Task<MsgInformationResponse> UpdateAccountAsync(string url, HeadersRq headers, UpdateAcctRq requestBody)
         {
             try

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-namespace application.util
+namespace SPI_Update_Service.Utils.util
 {
 
     public static class UtilCommons
@@ -18,7 +18,7 @@ namespace application.util
 
         public static async Task<T?> String2Object<T>(string jsonString)
         {
-            return JsonSerializer.Deserialize<T>(jsonString);           
+            return JsonSerializer.Deserialize<T>(jsonString);
         }
 
         public static async Task<string> Object2String<T>(T obj)

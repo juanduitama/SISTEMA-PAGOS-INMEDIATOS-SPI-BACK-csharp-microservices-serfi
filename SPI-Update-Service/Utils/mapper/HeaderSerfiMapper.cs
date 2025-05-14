@@ -3,12 +3,13 @@ using System.Text.Json.Serialization.Metadata;
 using System.Text.Json;
 using domain.models.enrollment;
 
-namespace application.mapper
+namespace SPI_Update_Service.Utils.mapper
 {
     public class HeaderSerfiMapper
     {
 
-        public UpdateHeaders mapHeaders(string apiKey, string autentication, string uuId, string timeStamp, string systemId){
+        public UpdateHeaders mapHeaders(string apiKey, string autentication, string uuId, string timeStamp, string systemId)
+        {
             UpdateHeaders headers = new UpdateHeaders();
 
             headers.apikey = apiKey;

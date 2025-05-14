@@ -1,6 +1,7 @@
 
 
-using SPI_Update_Service.service.update;
+using SPI_Update_Service.Proxy.interfaces;
+using SPI_Update_Service.Proxy.update;
 
 var builder = WebApplication.CreateBuilder(args);
 

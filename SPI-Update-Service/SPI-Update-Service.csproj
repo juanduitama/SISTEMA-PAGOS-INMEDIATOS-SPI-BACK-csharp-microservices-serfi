@@ -32,10 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="application\controllers\" />
-    <Folder Include="application\interfaces\" />
-    <Folder Include="application\util\" />
-    <Folder Include="application\mapper\" />
+    <Folder Include="ApplicationCore\services\" />
+    <Folder Include="ApplicationCore\interfaces\" />
     <Folder Include="domain\constants\" />
     <Folder Include="domain\models\openSearchModel\" />
     <Folder Include="infrastructure\repositories\" />

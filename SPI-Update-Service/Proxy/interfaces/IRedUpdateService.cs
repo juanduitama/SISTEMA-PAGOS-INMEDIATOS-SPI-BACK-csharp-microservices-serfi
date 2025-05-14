@@ -7,7 +7,7 @@ using domain.models.redeban;
 using domain.models.redeban.response;
 using SPI_Update_Service.domain.models.redeban;
 
-namespace SPI_Update_Service.service.update
+namespace SPI_Update_Service.Proxy.interfaces
 {
     public interface IRedUpdateService
     {
@@ -15,6 +15,5 @@ namespace SPI_Update_Service.service.update
         /// Método para eliminar una llave
         /// </summary>
         Task<MsgInformationResponse> UpdateAccountAsync(string url, HeadersRq headers, UpdateAcctRq request);
-        Task<MsgInformationResponse> UpdateKeyAsync(string url, HeadersRq headers, UpdateKeyPersonRq request);
     }
 }

@@ -1,26 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SPI_Update_Service.service.update;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
-using application.Util;
 using domain.models;
 using domain.constants;
-using application.util;
 using domain.models.enrollment;
-using application.mapper;
-using application.Services;
 using domain.models.redeban;
 using SPI_Update_Service.domain.models.redeban;
 using domain.models.openSearchModel;
-using application.interfaces;
 using domain.models.redeban.response;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using OpenSearch.Client;
+using SPI_Update_Service.Proxy.interfaces;
+using SPI_Update_Service.Utils.util;
+using SPI_Update_Service.Utils.mapper;
+using SPI_Update_Service.Utils;
 
-namespace application.controllers
+namespace SPI_Update_Service.Controllers
 {
     [ApiController]
     [Route("Directory/[controller]")]
@@ -31,7 +29,6 @@ namespace application.controllers
         private readonly ValidateService validateService = new ValidateService();
         private readonly HeaderSerfiMapper _headersMapper = new HeaderSerfiMapper();
         private readonly RedRqMapper _redRqMapper = new RedRqMapper();
-        private readonly IOpenSearchService _openSearchService = new OpenSearchService();
         private readonly RqMapperOs _rqMapperOs = new RqMapperOs();
         private readonly ResponseSerfiMapper _rsSerfiMapper = new ResponseSerfiMapper();
 
@@ -167,108 +164,5 @@ namespace application.controllers
             }
         }
 
-        [HttpPatch("key")]
-        public async Task<IActionResult> UpdateKey([FromHeader(Name = HeadersSerfiEnum.API_KEY)] string apiKeyHeader,
-                                                   [FromHeader(Name = HeadersSerfiEnum.AUTHENTICATION)] string authHeader,
-                                                   [FromHeader(Name = HeadersSerfiEnum.UUID)] string uuidHeader,
-                                                   [FromHeader(Name = HeadersSerfiEnum.TIMESTAMPS)] string timestampsHeader,
-                                                   [FromHeader(Name = HeadersSerfiEnum.SYSTEMID)] string systemIdHeader,
-                                                   [FromBody] ReqBPatchKey body)
-        {
-
-            UpdateKeyRq request = new UpdateKeyRq();
-            request.updateHeaders = _headersMapper.mapHeaders(apiKeyHeader, authHeader, uuidHeader, timestampsHeader, systemIdHeader);
-            string headers = await UtilCommons.Object2String(request.updateHeaders);
-            Console.WriteLine("headers: " + headers);
-
-            request.reqBPatchKey = body;
-            string body1 = await UtilCommons.Object2String(request.reqBPatchKey);
-            Console.WriteLine("body: " + body1);
-
-
-            try
-            {
-                Console.WriteLine("Iniciando proceso de actualización de llave");
-                MsgInformationResponse responseRedeban;
-                validateService.ValidateServiceUpdateKeyModel(request);
-
-                Console.WriteLine("Termino el proceso de validacion");
-                //OSDefinitive opSearchOldEntity = await _openSearchService.SearchKey(request.reqBPatchKey.key.oldKeyType, request.reqBPatchKey.key.oldKeyId);
-                //string opSearchOldEntityPrint = await UtilCommons.Object2String(opSearchOldEntity);
-                //Console.WriteLine("OS entity: " + opSearchOldEntityPrint);
-
-                //validateService.validateOSEntity(request, opSearchOldEntity);
-
-                //string apiUri = _uriUtil.BuildUri(ConstantsEnum.KEY_UPDATE);
-                string apiUri = _uriUtil.BuildUriKey(request.reqBPatchKey.custInfo.custIdent.custIdentId);
-                //string apiUri = "https://b893c53b-3fb1-43b9-b7c2-4a85801e0e88.mock.pstmn.io/KeyUpdate";
-
-                Console.WriteLine($"URL completa: {apiUri}");
-
-                // Obtener headers de la solicitud
-                HeadersRq headersRq = _redRqMapper.MapHeadersFromRequest(request.updateHeaders);
-                UpdateKeyPersonRq updateBody = _redRqMapper.MapBodyKeyFromRequest(request);
-
-                // Llamar al servicio
-                MsgInformationResponse response = await _updateService.UpdateKeyAsync(apiUri, headersRq, updateBody);
-
-                if (response.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_SUCCESS_STATUS_CODE || response.messageInformation.msgCode == StatusCodeEnum.RED_PERSON_CREATED_STATUS_CODE)
-                {
-                    Console.WriteLine("Se modificó la llave exitosamente: " + response.ToString());
-                }
-                else
-                {
-                    Console.WriteLine($"No se pudo modificar la llave: " + response.ToString());
-                    throw new SerfiException(ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getErrorCode(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getMessage(), ResponseServiceEnum.SERVICE_ACCOUNT_ERROR.getHttpCode());
-                }
-
-                //Console.WriteLine("Iniciando proceso de guardado en open search.");
-                //OSDefinitive entityToSave = _rqMapperOs.mapUpdateKeyOSDefinitiveFromRequest(request, opSearchOldEntity);
-
-                //await _openSearchService.SaveKey(entityToSave);
-
-                //await _openSearchService.DeleteKey(opSearchOldEntity.key.keyType, opSearchOldEntity.key.keyId);
-
-                //Console.WriteLine("Se modificó en open search correctamente.");
-
-
-                MsgInformationResponseSerfi responseService = _rsSerfiMapper.mapMessageResponseKey( request, response);
-
-                Console.WriteLine("Finalizo el proceso");
-
-                return Ok(responseService);
-            }
-            catch (JsonException ex)
-            {
-                Console.WriteLine($"Error al procesar JSON: {ex.Message}");
-
-                return BadRequest(new
-                {
-                    error = "Formato JSON inválido",
-                    message = ex.Message
-                });
-            }
-            catch (SerfiException ex)
-            {
-                Console.WriteLine($"Error de serfinanzas: {ex.Message}");
-
-                return BadRequest(new
-                {
-                    code = ex.errorCode,
-                    error = ex.message
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error en la inscripción: {ex.Message}");
-
-                return StatusCode(500, new
-                {
-                    error = "Error interno del servidor",
-                    message = ex.Message,
-                    timestamp = DateTime.UtcNow.ToString()
-                });
-            }
-        }
     }
 }

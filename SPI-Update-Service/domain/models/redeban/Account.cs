@@ -9,11 +9,6 @@ namespace domain.models.redeban
 {
     public class Account
     {
-        /// <summary>
-        /// Identificador del banco.
-        /// </summary>
-        [JsonPropertyName("BankId")]
-        public string bankId { get; set; }
 
         /// <summary>
         /// Tipo de cuenta.

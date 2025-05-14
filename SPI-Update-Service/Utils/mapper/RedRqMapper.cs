@@ -1,16 +1,11 @@
-﻿using System.Text.Json.Serialization.Metadata;
-using System.Text.Json;
-using domain.constants;
+﻿using domain.constants;
 using domain.models;
 using domain.models.enrollment;
 using domain.models.redeban;
 using SPI_Update_Service.domain.models.redeban;
-using domain.models.openSearchModel;
-using application.util;
 using domain.models.oAuth;
-using OpenSearch.Client;
 
-namespace application.mapper
+namespace SPI_Update_Service.Utils.mapper
 {
     /// <summary>
     /// Utilidad para manejar encabezados HTTP
@@ -28,19 +23,6 @@ namespace application.mapper
         public void AddUpdateHeaders(HttpClient request, HeadersRq headers, string token)
         {
 
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CONTENT_TYPE, headers.ContentType);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.DATE, headers.Date);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_FROM, headers.RBMFrom);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ACCEPT, headers.Accept);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_FORWARDED_FOR, headers.XForwardedFor);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.X_REQUEST_ID, Guid.NewGuid().ToString("D"));
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ORIGIN, ConstantsEnum.ORIGIN);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CHANNEL, headers.Channel);
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RQ_ID, random.NextInt64(100000000000, 999999999999).ToString());
-            //request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_USER_DATE, headers.RBMUserDate);
-
-
-
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.CONTENT_TYPE, headers.ContentType);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.DATE, headers.Date);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RBM_FROM, headers.RBMFrom);
@@ -50,7 +32,7 @@ namespace application.mapper
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.ORIGIN, ConstantsEnum.ORIGIN);
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.RQ_ID, random.NextInt64(100000000000, 999999999999).ToString());
             request.DefaultRequestHeaders.TryAddWithoutValidation(RedHeadersEnum.AUTHORIZATION, ConstantsEnum.BEARER + " " + token.Trim());
-            Console.WriteLine("Estos son los headers para http");
+            Console.WriteLine("Estos son los headers para http: " + request.DefaultRequestHeaders.ToString());
 
         }
 
@@ -89,31 +71,12 @@ namespace application.mapper
             return rqOauth;
         }
 
-        public  UpdateKeyPersonRq MapBodyKeyFromRequest(UpdateKeyRq request) 
-        {
-          
-          UpdateKeyPersonRq bodyRed = new UpdateKeyPersonRq();
-
-          //string newDate = request.updateHeaders.timeStamps.ToString().Replace("Z", "");
-
-          bodyRed.requestDateTime = DateTime.Now.ToString("YYYY-MM-DDThh:mm:ss.SSS");
-          bodyRed.partySystemIdentifier = request.reqBPatchKey.key.oldKeyType;
-          bodyRed.partyIdentifier = request.reqBPatchKey.key.oldKeyId;
-          bodyRed.newPartySystemIdentifier = request.reqBPatchKey.key.newKeyType;
-          bodyRed.newPartyIdentifier = request.reqBPatchKey.key.newKeyId;
-
-
-           return bodyRed;
-
-
-        }
-
         public UpdateAcctRq MapBodyAccountFromRequest(ReqBPatchAccount reqBPatchAccount)
         {
             UpdateAcctRq bodyRed = new UpdateAcctRq();
 
-            
-            bodyRed.requestDateTime = DateTime.Now.ToString("YYYY-MM-DDThh:mm:ss.SSS");
+
+            bodyRed.requestDateTime = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss.fff");
 
             Customer customer = new Customer();
             customer.type = reqBPatchAccount.custInfo.custType;
@@ -131,9 +94,9 @@ namespace application.mapper
             account.ageAccount = reqBPatchAccount.acctInfo.ageAccount;
 
             Product product = new Product();
-            
+
             product.account = account;
-            
+
             bodyRed.product = product;
 
 
