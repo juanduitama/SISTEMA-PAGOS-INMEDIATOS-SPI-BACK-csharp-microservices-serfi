@@ -39,7 +39,5 @@ namespace domain.models.redeban
         public Commerce? commerce { get; set; }
 
 
-
-
     }
 }
